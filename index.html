@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionário de Avaliação</title>
+    <title>Questionário de Avaliação 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Cores da UnB - Azul: #002e70 (Pantone 654), Verde: #00874e (Pantone 348) */
@@ -53,6 +53,23 @@
         .focus\:ring-unb-green:focus {
             --tw-ring-color: #00874e; /* Anel de foco verde */
         }
+        .form-section {
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: white;
+        }
+        .form-title-text {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d3748; /* Tom de cinza escuro */
+            margin-bottom: 0.5rem;
+        }
+        .form-description-text {
+            font-size: 0.875rem;
+            color: #4a5568; /* Tom de cinza médio */
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-8">
@@ -64,7 +81,7 @@
         </div>
 
         <!-- RCLE - Registro do Consentimento Livre e Esclarecido -->
-        <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+        <div class="form-section">
             <h2 class="text-lg font-semibold text-gray-800 mb-4">REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE</h2>
             <div class="rcle-container mb-4 text-sm text-gray-600 leading-relaxed p-4 border border-gray-200 rounded-md">
                 <p>Você está sendo convidado(a) a participar, de forma voluntária, da pesquisa intitulada "ESTUDO DAS NECESSIDADES INFORMACIONAIS DOS USUÁRIOS DISCENTES NA MIGRAÇÃO DO SISTEMA DE GERENCIAMENTO DE CONTEÚDO: ESTUDO DE CASO DO SITE DO CURSO DE ARQUIVOLOGIA DA FACULDADE DE CIÊNCIA DA INFORMAÇÃO". Esta pesquisa é conduzida por Hudson Gomes da Silva Arruda, discente do Programa de Pós-Graduação em Ciência da Informação da Universidade de Brasília, sob orientação da professora Dra. Ivette Kafure Muñoz. O objetivo do estudo é compreender como os estudantes do curso de Arquivologia acessam e utilizam as informações disponibilizadas no site do curso, visando propor melhorias durante o processo de migração do atual sistema Joomla para a plataforma WordPress.</p>
@@ -80,8 +97,6 @@
                 <p>Caso ocorra qualquer dano decorrente da pesquisa, você terá direito à devida indenização, nos termos da Lei (Resolução CNS nº 510/2020, Art. 9º). Além disso, caso você tenha despesas diretamente relacionadas à sua participação, como custos com internet, poderá solicitar ressarcimento previamente acordado com o pesquisador.</p>
                 <br>
                 <p>O Comitê de Ética em Pesquisa em Ciências Humanas e Sociais da Universidade de Brasília (CEP/CHS/UnB) é responsável por avaliar se esta pesquisa está de acordo com os princípios éticos que protegem os participantes. Já a Comissão Nacional de Ética em Pesquisa – Conep, órgão nacional responsável pela regulação das pesquisas envolvendo seres humanos no Brasil, pode ser contatada no endereço: SRTVN - Via W5 Norte, Edifício PO700 - Quadra 701, Lote D, 5º andar, Asa Norte, CEP 70719-040 – Brasília (DF), Telefone: (61) 3315-5877, com atendimento das 9h às 18h.</p>
-                <br>
-                <p>Você poderá esclarecer dúvidas ou obter mais informações entrando em contato com o pesquisador responsável pela presente pesquisa pelo telefone (61) 98163-0336 ou pelo e-mail hudsongomesarruda@gmail.com ou ainda com o CEP/CHS/UnB Campus Universitário Darcy Ribeiro, Faculdade de Direito, telefone (61) 3107-1592 e-mail: cep_chs@unb.br com atendimento das 8h às 14h.</p>
             </div>
             <!-- Checkbox de Consentimento -->
             <div class="mt-4 flex items-start">
@@ -93,10 +108,9 @@
         </div>
 
         <!-- Formulário principal -->
-        <!-- Usando o Netlify Forms. Lembre-se de substituir o nome do formulário se tiver mais de um! -->
         <form id="google-forms-clone" name="questionario" method="POST" data-netlify="true">
             <!-- 1. Informações Gerais -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">1. Informações Gerais</h2>
                 <!-- Nome (opcional) -->
                 <div class="mb-4">
@@ -115,12 +129,13 @@
                         <div class="flex items-center"><input id="semestre-6" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green"><label for="semestre-6" class="ml-3 block text-sm font-medium text-gray-700">6º</label></div>
                         <div class="flex items-center"><input id="semestre-7" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green"><label for="semestre-7" class="ml-3 block text-sm font-medium text-gray-700">7º</label></div>
                         <div class="flex items-center"><input id="semestre-8" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green"><label for="semestre-8" class="ml-3 block text-sm font-medium text-gray-700">8º</label></div>
+                        <div class="flex items-center"><input id="semestre-egresso" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green"><label for="semestre-egresso" class="ml-3 block text-sm font-medium text-gray-700">Egresso</label></div>
                     </div>
                 </div>
             </div>
 
             <!-- 2. Acesso ao Site -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">2. Acesso ao Site</h2>
                 <!-- Frequência -->
                 <div class="mb-6">
@@ -145,7 +160,7 @@
             </div>
 
             <!-- 3. Navegação e Usabilidade -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">3. Navegação e Usabilidade</h2>
                 <!-- Facilidade de navegação -->
                 <div class="mb-6">
@@ -185,7 +200,7 @@
             </div>
 
             <!-- 4. Conteúdo e Informação -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">4. Conteúdo e Informação</h2>
                 <!-- Qualidade do conteúdo -->
                 <div class="mb-6">
@@ -224,7 +239,7 @@
             </div>
 
             <!-- 5. Design e Aparência -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">5. Design e Aparência</h2>
                 <!-- Avaliação do design -->
                 <div class="mb-6">
@@ -248,7 +263,7 @@
             </div>
             
             <!-- 6. Funcionalidades e Recursos -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">6. Funcionalidades e Recursos</h2>
                 <!-- Mais utilizadas - Corrigido, removido o 'required' -->
                 <div class="mb-4">
@@ -272,7 +287,7 @@
             </div>
 
             <!-- 7. Comentários e Sugestões -->
-            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <div class="form-section">
                 <h2 class="text-lg font-semibold text-gray-800 mb-4">7. Comentários e Sugestões</h2>
                 <label for="comentarios" class="block text-base font-medium text-gray-700 mb-2">Por favor, forneça quaisquer comentários adicionais ou sugestões para a melhoria do site:</label>
                 <textarea id="comentarios" name="comentarios" rows="4" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta"></textarea>
@@ -368,18 +383,30 @@
                     return;
                 }
 
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData.entries());
-
-                console.log('Dados do formulário:', data);
-
-                // Exibir o modal de sucesso
-                successModal.classList.remove('hidden');
-
-                // Bloquear o formulário desabilitando todos os elementos
-                const formElements = form.elements;
-                for (let i = 0; i < formElements.length; i++) {
-                    formElements[i].disabled = true;
+                // Desabilita o botão para evitar cliques duplicados
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                
+                // O Netlify Forms processa a submissão nativa do formulário
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                });
+                
+                if (response.ok) {
+                    // Exibe o modal de sucesso
+                    successModal.classList.remove('hidden');
+                
+                    // Bloqueia o formulário desabilitando todos os elementos
+                    const formElements = form.elements;
+                    for (let i = 0; i < formElements.length; i++) {
+                        formElements[i].disabled = true;
+                    }
+                } else {
+                    // Trata erros de resposta do servidor
+                    console.error('Falha no envio do formulário.');
+                    alert('Houve um erro ao enviar o formulário. Por favor, tente novamente.');
                 }
             });
 
