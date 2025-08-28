@@ -1,99 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pesquisa site Arquivologia FCI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionário - Pesquisa FCI</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen flex flex-col">
-
+<body class="bg-gray-100 font-sans">
   <!-- Cabeçalho -->
-  <header class="bg-gradient-to-r from-blue-800 to-green-700 text-white py-6 shadow-lg">
-    <div class="container mx-auto px-6 flex items-center justify-between">
-      <h1 class="text-2xl md:text-3xl font-bold tracking-wide">Pesquisa de Opinião - Arquivologia FCI</h1>
-      <span class="bg-white text-blue-800 px-3 py-1 rounded-full text-sm font-semibold shadow-md">UnB</span>
-    </div>
+  <header class="bg-[#2a4d8f]/90 text-white shadow-lg p-6 text-center">
+    <h1 class="text-2xl font-bold">Pesquisa - Arquivologia FCI/UnB</h1>
+    <p class="text-sm">Estudo das necessidades informacionais dos discentes</p>
   </header>
 
-  <!-- Conteúdo -->
-  <main class="flex-1 container mx-auto px-6 py-10">
-    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-      
-      <!-- Barra de Progresso -->
-      <div class="mb-6">
-        <div class="flex justify-between mb-2 text-sm font-medium text-gray-600">
-          <span>Progresso</span><span>40%</span>
-        </div>
-        <div class="w-full bg-gray-200 rounded-full h-3">
-          <div class="bg-gradient-to-r from-blue-600 to-green-500 h-3 rounded-full w-2/5 transition-all duration-500"></div>
+  <main class="max-w-3xl mx-auto p-6 space-y-8">
+    <!-- RCLE -->
+    <section class="bg-white border-l-4 border-[#2d7a4f]/70 shadow-md rounded-xl p-6">
+      <h2 class="text-xl font-semibold text-[#2a4d8f] mb-4">
+        REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE
+      </h2>
+      <p class="text-gray-700 mb-4">
+        Você está sendo convidado(a) a participar, como voluntário(a), da pesquisa
+        “Estudo das necessidades informacionais dos usuários discentes na migração do sistema de gerenciamento de conteúdo:
+        estudo de caso do site do curso de Arquivologia da Faculdade de Ciência da Informação”.
+      </p>
+      <p class="text-gray-700 mb-4">
+        Sua participação é voluntária e todas as informações coletadas serão utilizadas apenas para fins acadêmicos, garantindo sigilo e anonimato.
+      </p>
+      <label class="flex items-center space-x-2 mt-4">
+        <input type="checkbox" required class="w-5 h-5 text-[#2d7a4f] border-gray-300 rounded">
+        <span class="text-gray-800 font-medium">Li e aceito participar da pesquisa</span>
+      </label>
+    </section>
+
+    <!-- Questionário -->
+    <form class="space-y-6">
+      <!-- Exemplo de pergunta -->
+      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
+        <label class="block text-gray-800 font-medium mb-2">
+          1. Qual o seu semestre atual no curso?
+        </label>
+        <select class="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#2a4d8f]/60">
+          <option value="">Selecione</option>
+          <option value="1">1º semestre</option>
+          <option value="2">2º semestre</option>
+          <option value="3">3º semestre</option>
+          <option value="4">4º semestre</option>
+          <option value="5+">5º ou mais</option>
+        </select>
+      </div>
+
+      <!-- Outra pergunta -->
+      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
+        <label class="block text-gray-800 font-medium mb-2">
+          2. Você costuma acessar o site do curso de Arquivologia?
+        </label>
+        <div class="space-y-2">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="acesso" value="sim" class="text-[#2d7a4f]">
+            <span>Sim</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="acesso" value="nao" class="text-[#2d7a4f]">
+            <span>Não</span>
+          </label>
         </div>
       </div>
 
-      <!-- Introdução -->
-      <div class="mb-8 text-center">
-        <h2 class="text-2xl font-bold text-gray-800 mb-3">Sua opinião é importante!</h2>
-        <p class="text-gray-600">Responda este questionário para ajudar a melhorar o site do curso de Arquivologia da FCI/UnB.</p>
+      <!-- Pergunta aberta -->
+      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
+        <label class="block text-gray-800 font-medium mb-2">
+          3. Em sua opinião, quais melhorias seriam importantes para o site?
+        </label>
+        <textarea rows="4" class="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#2d7a4f]/60"></textarea>
       </div>
 
-      <!-- Formulário -->
-      <form class="space-y-8">
-
-        <!-- Pergunta 1 -->
-        <div class="p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition bg-gradient-to-br from-blue-50 to-white">
-          <label class="block text-lg font-semibold text-gray-700 mb-3">1. Qual seu período atual no curso?</label>
-          <select class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-            <option>Selecione</option>
-            <option>1º ao 4º período</option>
-            <option>5º ao 8º período</option>
-            <option>9º período ou mais</option>
-          </select>
-        </div>
-
-        <!-- Pergunta 2 -->
-        <div class="p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition bg-gradient-to-br from-green-50 to-white">
-          <label class="block text-lg font-semibold text-gray-700 mb-3">2. Com que frequência você acessa o site do curso?</label>
-          <div class="space-y-2">
-            <label class="flex items-center gap-3">
-              <input type="radio" name="frequencia" class="text-green-600 focus:ring-green-500">
-              <span>Diariamente</span>
-            </label>
-            <label class="flex items-center gap-3">
-              <input type="radio" name="frequencia" class="text-green-600 focus:ring-green-500">
-              <span>Semanalmente</span>
-            </label>
-            <label class="flex items-center gap-3">
-              <input type="radio" name="frequencia" class="text-green-600 focus:ring-green-500">
-              <span>Mensalmente</span>
-            </label>
-            <label class="flex items-center gap-3">
-              <input type="radio" name="frequencia" class="text-green-600 focus:ring-green-500">
-              <span>Raramente</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Pergunta 3 -->
-        <div class="p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition bg-gradient-to-br from-yellow-50 to-white">
-          <label class="block text-lg font-semibold text-gray-700 mb-3">3. Quais informações você considera mais importantes no site?</label>
-          <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400" rows="4" placeholder="Digite sua resposta..."></textarea>
-        </div>
-
-        <!-- Botão Enviar -->
-        <div class="text-center">
-          <button type="submit" class="px-8 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-blue-600 to-green-600 shadow-lg hover:opacity-90 transition">
-            Enviar Resposta
-          </button>
-        </div>
-
-      </form>
-    </div>
+      <!-- Botão enviar -->
+      <div class="text-center">
+        <button type="submit"
+          class="bg-[#2d7a4f]/90 hover:bg-[#2d7a4f] text-white font-bold px-8 py-3 rounded-2xl shadow-md transition">
+          Enviar Respostas
+        </button>
+      </div>
+    </form>
   </main>
 
   <!-- Rodapé -->
-  <footer class="bg-gray-100 text-center py-4 text-sm text-gray-600">
-    © 2025 Faculdade de Ciência da Informação - UnB. Todos os direitos reservados.
+  <footer class="bg-gray-200 text-gray-700 text-center text-sm py-4 mt-10">
+    © 2025 Faculdade de Ciência da Informação - UnB
   </footer>
-
 </body>
 </html>
