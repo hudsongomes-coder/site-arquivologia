@@ -1,93 +1,465 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Questionário - Pesquisa FCI</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Avaliação - UnB</title>
+    <style>
+        :root {
+            --primary-color: #2e8b57;
+            --secondary-color: #f0f8ff;
+            --text-color: #333;
+            --heading-color: #004d40;
+            --border-color: #ccc;
+            --button-color: #4CAF50;
+            --button-hover-color: #45a049;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--heading-color);
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #555;
+            font-style: italic;
+        }
+
+        form section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        form section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-item input, .checkbox-item input {
+            margin-right: 8px;
+        }
+
+        .consent-box {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .consent-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        #submit-btn {
+            background-color: var(--button-color);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+            font-size: 1em;
+            width: 100%;
+            transition: background-color 0.3s;
+            opacity: 0.6;
+        }
+        
+        #submit-btn:enabled {
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        #submit-btn:enabled:hover {
+            background-color: var(--button-hover-color);
+        }
+        
+        .message-container {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border: 1px solid var(--button-color);
+            border-radius: 5px;
+            display: none;
+        }
+
+        .message-container h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-  <!-- Cabeçalho -->
-  <header class="bg-[#2a4d8f]/90 text-white shadow-lg p-6 text-center">
-    <h1 class="text-2xl font-bold">Pesquisa - Arquivologia FCI/UnB</h1>
-    <p class="text-sm">Estudo das necessidades informacionais dos discentes</p>
-  </header>
+<body>
 
-  <main class="max-w-3xl mx-auto p-6 space-y-8">
-    <!-- RCLE -->
-    <section class="bg-white border-l-4 border-[#2d7a4f]/70 shadow-md rounded-xl p-6">
-      <h2 class="text-xl font-semibold text-[#2a4d8f] mb-4">
-        REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE
-      </h2>
-      <p class="text-gray-700 mb-4">
-        Você está sendo convidado(a) a participar, como voluntário(a), da pesquisa
-        “Estudo das necessidades informacionais dos usuários discentes na migração do sistema de gerenciamento de conteúdo:
-        estudo de caso do site do curso de Arquivologia da Faculdade de Ciência da Informação”.
-      </p>
-      <p class="text-gray-700 mb-4">
-        Sua participação é voluntária e todas as informações coletadas serão utilizadas apenas para fins acadêmicos, garantindo sigilo e anonimato.
-      </p>
-      <label class="flex items-center space-x-2 mt-4">
-        <input type="checkbox" required class="w-5 h-5 text-[#2d7a4f] border-gray-300 rounded">
-        <span class="text-gray-800 font-medium">Li e aceito participar da pesquisa</span>
-      </label>
-    </section>
+<div class="container">
+    <header>
+        <h1>UNIVERSIDADE DE BRASÍLIA - UnB</h1>
+        <p>PROGRAMA DE PÓS-GRADUAÇÃO EM CIÊNCIA DA INFORMAÇÃO</p>
+        <h2>QUESTIONÁRIO DE AVALIAÇÃO SOBRE O SITE DO CURSO DE ARQUIVOLOGIA</h2>
+        <p>Prezado(a) aluno(a), sua opinião é muito importante para nós! Por favor, dedique alguns minutos para responder este questionário e nos ajudar a melhorar o site do curso de Arquivologia.</p>
+    </header>
 
-    <!-- Questionário -->
-    <form class="space-y-6">
-      <!-- Exemplo de pergunta -->
-      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
-        <label class="block text-gray-800 font-medium mb-2">
-          1. Qual o seu semestre atual no curso?
-        </label>
-        <select class="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#2a4d8f]/60">
-          <option value="">Selecione</option>
-          <option value="1">1º semestre</option>
-          <option value="2">2º semestre</option>
-          <option value="3">3º semestre</option>
-          <option value="4">4º semestre</option>
-          <option value="5+">5º ou mais</option>
-        </select>
-      </div>
+    <form id="evaluation-form" action="#" method="post">
+        <section>
+            <h2>1. Informações Gerais</h2>
+            <div class="form-group">
+                <label for="nome">Nome (opcional):</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div class="form-group">
+                <label>Semestre Atual:</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="semestre-1" name="semestre" value="1º" required><label for="semestre-1">1º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-2" name="semestre" value="2º"><label for="semestre-2">2º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-3" name="semestre" value="3º"><label for="semestre-3">3º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-4" name="semestre" value="4º"><label for="semestre-4">4º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-5" name="semestre" value="5º"><label for="semestre-5">5º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-6" name="semestre" value="6º"><label for="semestre-6">6º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-7" name="semestre" value="7º"><label for="semestre-7">7º</label></div>
+                    <div class="radio-item"><input type="radio" id="semestre-8" name="semestre" value="8º"><label for="semestre-8">8º</label></div>
+                </div>
+            </div>
+        </section>
 
-      <!-- Outra pergunta -->
-      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
-        <label class="block text-gray-800 font-medium mb-2">
-          2. Você costuma acessar o site do curso de Arquivologia?
-        </label>
-        <div class="space-y-2">
-          <label class="flex items-center space-x-2">
-            <input type="radio" name="acesso" value="sim" class="text-[#2d7a4f]">
-            <span>Sim</span>
-          </label>
-          <label class="flex items-center space-x-2">
-            <input type="radio" name="acesso" value="nao" class="text-[#2d7a4f]">
-            <span>Não</span>
-          </label>
-        </div>
-      </div>
+        <section>
+            <h2>2. Acesso ao Site</h2>
+            <div class="form-group">
+                <label>Com que frequência você acessa o site do curso de Arquivologia?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="freq-diariamente" name="frequencia" value="Diariamente" required><label for="freq-diariamente">Diariamente</label></div>
+                    <div class="radio-item"><input type="radio" id="freq-semanalmente" name="frequencia" value="Semanalmente"><label for="freq-semanalmente">Semanalmente</label></div>
+                    <div class="radio-item"><input type="radio" id="freq-mensalmente" name="frequencia" value="Mensalmente"><label for="freq-mensalmente">Mensalmente</label></div>
+                    <div class="radio-item"><input type="radio" id="freq-raramente" name="frequencia" value="Raramente"><label for="freq-raramente">Raramente</label></div>
+                    <div class="radio-item"><input type="radio" id="freq-nunca" name="frequencia" value="Nunca"><label for="freq-nunca">Nunca</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Quais dispositivos você utiliza para acessar o site? (Selecione todos que se aplicam)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox" id="disp-comp" name="dispositivos" value="Computador/Notebook"><label for="disp-comp">Computador/Notebook</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="disp-tablet" name="dispositivos" value="Tablet"><label for="disp-tablet">Tablet</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="disp-smartphone" name="dispositivos" value="Smartphone"><label for="disp-smartphone">Smartphone</label></div>
+                </div>
+            </div>
+        </section>
 
-      <!-- Pergunta aberta -->
-      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
-        <label class="block text-gray-800 font-medium mb-2">
-          3. Em sua opinião, quais melhorias seriam importantes para o site?
-        </label>
-        <textarea rows="4" class="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#2d7a4f]/60"></textarea>
-      </div>
+        <section>
+            <h2>3. Navegação e Usabilidade</h2>
+            <div class="form-group">
+                <label>Como você avalia a facilidade de navegação no site?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="nav-muito-facil" name="navegacao" value="Muito fácil" required><label for="nav-muito-facil">Muito fácil</label></div>
+                    <div class="radio-item"><input type="radio" id="nav-facil" name="navegacao" value="Fácil"><label for="nav-facil">Fácil</label></div>
+                    <div class="radio-item"><input type="radio" id="nav-neutra" name="navegacao" value="Neutra"><label for="nav-neutra">Neutra</label></div>
+                    <div class="radio-item"><input type="radio" id="nav-dificil" name="navegacao" value="Difícil"><label for="nav-dificil">Difícil</label></div>
+                    <div class="radio-item"><input type="radio" id="nav-muito-dificil" name="navegacao" value="Muito difícil"><label for="nav-muito-dificil">Muito difícil</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Você encontra facilmente as informações que procura no site?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="info-sempre" name="info-facilidade" value="Sempre" required><label for="info-sempre">Sempre</label></div>
+                    <div class="radio-item"><input type="radio" id="info-frequentemente" name="info-facilidade" value="Frequentemente"><label for="info-frequentemente">Frequentemente</label></div>
+                    <div class="radio-item"><input type="radio" id="info-as-vezes" name="info-facilidade" value="Às vezes"><label for="info-as-vezes">Às vezes</label></div>
+                    <div class="radio-item"><input type="radio" id="info-raramente" name="info-facilidade" value="Raramente"><label for="info-raramente">Raramente</label></div>
+                    <div class="radio-item"><input type="radio" id="info-nunca" name="info-facilidade" value="Nunca"><label for="info-nunca">Nunca</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Existem links quebrados ou páginas que não carregam corretamente?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="links-sim" name="links-quebrados" value="Sim" required><label for="links-sim">Sim</label></div>
+                    <div class="radio-item"><input type="radio" id="links-nao" name="links-quebrados" value="Não"><label for="links-nao">Não</label></div>
+                </div>
+                <div id="links-especificacao" class="form-group hidden">
+                    <label for="links-especificar">Se sim, por favor, especifique quais:</label>
+                    <textarea id="links-especificar" name="links-especificar"></textarea>
+                </div>
+            </div>
+        </section>
 
-      <!-- Botão enviar -->
-      <div class="text-center">
-        <button type="submit"
-          class="bg-[#2d7a4f]/90 hover:bg-[#2d7a4f] text-white font-bold px-8 py-3 rounded-2xl shadow-md transition">
-          Enviar Respostas
-        </button>
-      </div>
+        <section>
+            <h2>4. Conteúdo e Informação</h2>
+            <div class="form-group">
+                <label>Como você avalia a qualidade do conteúdo disponível no site?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="conteudo-excelente" name="conteudo-qualidade" value="Excelente" required><label for="conteudo-excelente">Excelente</label></div>
+                    <div class="radio-item"><input type="radio" id="conteudo-boa" name="conteudo-qualidade" value="Boa"><label for="conteudo-boa">Boa</label></div>
+                    <div class="radio-item"><input type="radio" id="conteudo-regular" name="conteudo-qualidade" value="Regular"><label for="conteudo-regular">Regular</label></div>
+                    <div class="radio-item"><input type="radio" id="conteudo-ruim" name="conteudo-qualidade" value="Ruim"><label for="conteudo-ruim">Ruim</label></div>
+                    <div class="radio-item"><input type="radio" id="conteudo-muito-ruim" name="conteudo-qualidade" value="Muito ruim"><label for="conteudo-muito-ruim">Muito ruim</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>O site oferece todas as informações necessárias sobre o curso?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="info-necessarias-sim" name="info-necessarias" value="Sim" required><label for="info-necessarias-sim">Sim</label></div>
+                    <div class="radio-item"><input type="radio" id="info-necessarias-parcialmente" name="info-necessarias" value="Parcialmente"><label for="info-necessarias-parcialmente">Parcialmente</label></div>
+                    <div class="radio-item"><input type="radio" id="info-necessarias-nao" name="info-necessarias" value="Não"><label for="info-necessarias-nao">Não</label></div>
+                </div>
+                <div id="info-faltando" class="form-group hidden">
+                    <label for="info-faltando-especificar">Se não, que informações estão faltando?</label>
+                    <textarea id="info-faltando-especificar" name="info-faltando-especificar"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>A atualização do conteúdo do site é feita regularmente?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="atualizacao-sim" name="atualizacao" value="Sim" required><label for="atualizacao-sim">Sim</label></div>
+                    <div class="radio-item"><input type="radio" id="atualizacao-nao" name="atualizacao" value="Não"><label for="atualizacao-nao">Não</label></div>
+                    <div class="radio-item"><input type="radio" id="atualizacao-nao-sei" name="atualizacao" value="Não sei"><label for="atualizacao-nao-sei">Não sei</label></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Design e Aparência</h2>
+            <div class="form-group">
+                <label>Como você avalia o design e a aparência do site?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="design-excelente" name="design" value="Excelente" required><label for="design-excelente">Excelente</label></div>
+                    <div class="radio-item"><input type="radio" id="design-boa" name="design" value="Boa"><label for="design-boa">Boa</label></div>
+                    <div class="radio-item"><input type="radio" id="design-regular" name="design" value="Regular"><label for="design-regular">Regular</label></div>
+                    <div class="radio-item"><input type="radio" id="design-ruim" name="design" value="Ruim"><label for="design-ruim">Ruim</label></div>
+                    <div class="radio-item"><input type="radio" id="design-muito-ruim" name="design" value="Muito ruim"><label for="design-muito-ruim">Muito ruim</label></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>O layout do site é visualmente agradável?</label>
+                <div class="radio-group">
+                    <div class="radio-item"><input type="radio" id="layout-sim" name="layout" value="Sim" required><label for="layout-sim">Sim</label></div>
+                    <div class="radio-item"><input type="radio" id="layout-nao" name="layout" value="Não"><label for="layout-nao">Não</label></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Funcionalidades e Recursos</h2>
+            <div class="form-group">
+                <label>Quais funcionalidades e recursos do site você mais utiliza? (Selecione todos que se aplicam)</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox" id="func-noticias" name="funcionalidades" value="Notícias e atualizações"><label for="func-noticias">Notícias e atualizações</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="func-calendario" name="funcionalidades" value="Calendário Acadêmico"><label for="func-calendario">Calendário Acadêmico</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="func-disciplinas" name="funcionalidades" value="Informações sobre disciplinas"><label for="func-disciplinas">Informações sobre disciplinas</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="func-materiais" name="funcionalidades" value="Materiais de apoio e estudo"><label for="func-materiais">Materiais de apoio e estudo</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="func-contatos" name="funcionalidades" value="Contatos e informações administrativas"><label for="func-contatos">Contatos e informações administrativas</label></div>
+                    <div class="checkbox-item"><input type="checkbox" id="func-outros" name="funcionalidades" value="Outro(s)"><label for="func-outros">Outro(s):</label></div>
+                    <input type="text" id="func-outros-text" name="funcionalidades-outros" class="hidden" placeholder="Especifique outros">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="recursos-sugestao">Há alguma funcionalidade ou recurso que você gostaria de ver no site?</label>
+                <textarea id="recursos-sugestao" name="recursos-sugestao"></textarea>
+            </div>
+        </section>
+
+        <section>
+            <h2>7. Comentários e Sugestões</h2>
+            <div class="form-group">
+                <label for="comentarios">Por favor, forneça quaisquer comentários adicionais ou sugestões para a melhoria do site:</label>
+                <textarea id="comentarios" name="comentarios"></textarea>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Termo de Consentimento</h2>
+            <div class="consent-box">
+                <h3>REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE</h3>
+                <p>Você está sendo convidado(a) a participar, de forma voluntária, da pesquisa intitulada "ESTUDO DAS NECESSIDADES INFORMACIONAIS DOS USUÁRIOS DISCENTES NA MIGRAÇÃO DO SISTEMA DE GERENCIAMENTO DE CONTEÚDO: ESTUDO DE CASO DO SITE DO CURSO DE ARQUIVOLOGIA DA FACULDADE DE CIÊNCIA DA INFORMAÇÃO". Esta pesquisa é conduzida por Hudson Gomes da Silva Arruda, discente do Programa de Pós-Graduação em Ciência da Informação da Universidade de Brasília, sob orientação da professora Dra. Ivette Kafure Muñoz. O objetivo do estudo é compreender como os estudantes do curso de Arquivologia acessam e utilizam as informações disponibilizadas no site do curso, visando propor melhorias durante o processo de migração do atual sistema Joomla para a plataforma WordPress.</p>
+                <p>A sua participação consistirá no preenchimento de um questionário eletrônico, com perguntas objetivas e abertas, cujo tempo estimado de resposta é de 15 a 20 minutos. As questões têm como foco suas experiências, percepções e dificuldades em acessar informações acadêmicas por meio do site do curso. Sua contribuição é essencial para que possamos compreender melhor as reais necessidades dos usuários discentes.</p>
+                <p>A sua participação poderá envolver alguns riscos, como desconforto ao relatar dificuldades de acesso à informação, ou eventuais preocupações com a privacidade dos dados compartilhados. Para minimizar esses riscos, garantimos que todas as informações prestadas serão tratadas com sigilo e anonimato. Nenhum dado permitirá a sua identificação. O questionário não exigirá nome, matrícula ou qualquer outro dado identificável.</p>
+                <p>Os dados coletados serão utilizados exclusivamente para fins acadêmicos e científicos e ficarão sob a guarda e responsabilidade do pesquisador por um período mínimo de cinco anos após o término da pesquisa, conforme determina a Resolução CNS nº 510/2016, Art. 28, Inciso IV. Durante esse período, os dados estarão armazenados em repositório digital seguro, com acesso restrito e protegido por senha.</p>
+                <p>Sua participação poderá trazer benefícios, como a melhoria da acessibilidade e usabilidade do site do curso, contribuindo para um ambiente mais eficiente e inclusivo na busca por informações acadêmicas. Os resultados da pesquisa serão divulgados em uma dissertação de mestrado publicada no Repositório Institucional da UnB (RIUnB) disponível publicamente no site da Biblioteca Central da UnB (BCE) em linguagem clara e acessível, conforme estabelecido no Art. 17, inciso VI da Resolução CNS nº 510/2016.</p>
+                <p>Caso ocorra qualquer dano decorrente da pesquisa, você terá direito à devida indenização, nos termos da Lei (Resolução CNS nº 510/2016, Art. 9º). Além disso, caso você tenha despesas diretamente relacionadas à sua participação, como custos com internet, poderá solicitar ressarcimento previamente acordado com o pesquisador.</p>
+                <p>O Comitê de Ética em Pesquisa em Ciências Humanas e Sociais da Universidade de Brasília (CEP/CHS/UnB) é responsável por avaliar se esta pesquisa está de acordo com os princípios éticos que protegem os participantes. Já a Comissão Nacional de Ética em Pesquisa – Conep, órgão nacional responsável pela regulação das pesquisas envolvendo seres humanos no Brasil, pode ser contatada no endereço: SRTVN - Via W5 Norte, Edifício PO700 - Quadra 701, Lote D, 5º andar, Asa Norte, CEP 70719-040 – Brasília (DF), Telefone: (61) 3315-5877, com atendimento das 9h às 18h.</p>
+                <p>Você poderá esclarecer dúvidas ou obter mais informações entrando em contato com o pesquisador responsável pela presente pesquisa pelo telefone (61) 98163-0336 ou pelo e-mail hudsongomesarruda@gmail.com ou ainda com o CEP/CHS/UnB Campus Universitário Darcy Ribeiro, Faculdade de Direito, telefone (61) 3107-1592 e-mail: cep_chs@unb.br com atendimento das 8h às 14h.</p>
+            </div>
+            <div class="consent-checkbox">
+                <input type="checkbox" id="consent-terms">
+                <label for="consent-terms">Ao preencher e enviar o presente formulário, você declara que foi devidamente informado(a) sobre os objetivos, procedimentos, riscos e benefícios desta pesquisa, e que sua participação é voluntária e poderá ser interrompida a qualquer momento, sem qualquer prejuízo.</label>
+            </div>
+        </section>
+
+        <button type="submit" id="submit-btn" disabled>Enviar Questionário</button>
     </form>
-  </main>
 
-  <!-- Rodapé -->
-  <footer class="bg-gray-200 text-gray-700 text-center text-sm py-4 mt-10">
-    © 2025 Faculdade de Ciência da Informação - UnB
-  </footer>
+    <div id="thank-you-message" class="message-container">
+        <h3>Obrigado(a) por sua participação!</h3>
+        <p>Sua colaboração é muito importante para a melhoria do site. Agradecemos por dedicar seu tempo para nos ajudar.</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('evaluation-form');
+        const consentCheckbox = document.getElementById('consent-terms');
+        const submitBtn = document.getElementById('submit-btn');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        const linksQuebradosSim = document.getElementById('links-sim');
+        const linksQuebradosEspecificar = document.getElementById('links-especificacao');
+        const infoNecessariasNao = document.getElementById('info-necessarias-nao');
+        const infoFaltando = document.getElementById('info-faltando');
+        const funcOutros = document.getElementById('func-outros');
+        const funcOutrosText = document.getElementById('func-outros-text');
+
+        // Habilitar/desabilitar o botão de envio com base no termo de consentimento
+        consentCheckbox.addEventListener('change', function() {
+            submitBtn.disabled = !this.checked;
+            if (this.checked) {
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+            } else {
+                submitBtn.style.opacity = '0.6';
+                submitBtn.style.cursor = 'not-allowed';
+            }
+        });
+
+        // Mostrar/esconder campos de especificação para "links quebrados"
+        linksQuebradosSim.addEventListener('change', function() {
+            if (this.checked) {
+                linksQuebradosEspecificar.classList.remove('hidden');
+            }
+        });
+        document.getElementById('links-nao').addEventListener('change', function() {
+            if (this.checked) {
+                linksQuebradosEspecificar.classList.add('hidden');
+            }
+        });
+
+        // Mostrar/esconder campos de especificação para "informações faltando"
+        infoNecessariasNao.addEventListener('change', function() {
+            if (this.checked) {
+                infoFaltando.classList.remove('hidden');
+            }
+        });
+        document.getElementById('info-necessarias-sim').addEventListener('change', function() {
+            if (this.checked) {
+                infoFaltando.classList.add('hidden');
+            }
+        });
+        document.getElementById('info-necessarias-parcialmente').addEventListener('change', function() {
+            if (this.checked) {
+                infoFaltando.classList.remove('hidden');
+            }
+        });
+
+        // Mostrar/esconder campo de texto para "Outras funcionalidades"
+        funcOutros.addEventListener('change', function() {
+            if (this.checked) {
+                funcOutrosText.classList.remove('hidden');
+            } else {
+                funcOutrosText.classList.add('hidden');
+                funcOutrosText.value = ''; // Limpa o campo
+            }
+        });
+
+        // Lidar com o envio do formulário
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // O JavaScript aqui impede o envio, então o Netlify não tentará processar
+            // os dados. Para um formulário real, você usaria um serviço de backend
+            // ou um serviço como o Formspree para capturar as informações.
+
+            // 1. Mostrar a mensagem de agradecimento
+            thankYouMessage.style.display = 'block';
+
+            // 2. Mudar o texto do botão
+            submitBtn.textContent = 'Obrigado(a)!';
+
+            // 3. Travar o formulário para evitar reenvio
+            submitBtn.disabled = true;
+            submitBtn.style.cursor = 'not-allowed';
+            submitBtn.style.opacity = '0.6';
+
+            // Desabilitar todos os campos do formulário
+            const formElements = form.querySelectorAll('input, textarea, button');
+            formElements.forEach(element => {
+                element.disabled = true;
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
