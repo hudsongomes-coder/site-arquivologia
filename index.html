@@ -6,13 +6,13 @@
     <title>Questionário de Avaliação - UnB</title>
     <style>
         :root {
-            --primary-color: #2e8b57;
-            --secondary-color: #f0f8ff;
+            --primary-color: #007bff;
+            --secondary-color: #e6f2ff;
             --text-color: #333;
-            --heading-color: #004d40;
+            --heading-color: #004d99;
             --border-color: #ccc;
-            --button-color: #4CAF50;
-            --button-hover-color: #45a049;
+            --button-color: #007bff;
+            --button-hover-color: #0056b3;
         }
 
         body {
@@ -38,10 +38,9 @@
             margin-bottom: 30px;
         }
 
-        header h1 {
+        header h2 {
             color: var(--heading-color);
-            font-size: 2em;
-            margin-bottom: 5px;
+            font-size: 1.5em;
         }
 
         header p {
@@ -94,11 +93,17 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            flex-direction: column; /* Alinhamento vertical */
         }
 
         .radio-item, .checkbox-item {
             display: flex;
             align-items: center;
+        }
+        
+        .radio-item label, .checkbox-item label {
+            margin-bottom: 0;
+            font-weight: normal;
         }
 
         .radio-item input, .checkbox-item input {
@@ -152,7 +157,7 @@
             text-align: center;
             margin-top: 20px;
             padding: 20px;
-            background-color: #e8f5e9;
+            background-color: var(--secondary-color);
             border: 1px solid var(--button-color);
             border-radius: 5px;
             display: none;
@@ -172,13 +177,30 @@
 
 <div class="container">
     <header>
-        <h1>UNIVERSIDADE DE BRASÍLIA - UnB</h1>
-        <p>PROGRAMA DE PÓS-GRADUAÇÃO EM CIÊNCIA DA INFORMAÇÃO</p>
         <h2>QUESTIONÁRIO DE AVALIAÇÃO SOBRE O SITE DO CURSO DE ARQUIVOLOGIA</h2>
         <p>Prezado(a) aluno(a), sua opinião é muito importante para nós! Por favor, dedique alguns minutos para responder este questionário e nos ajudar a melhorar o site do curso de Arquivologia.</p>
     </header>
 
     <form id="evaluation-form" action="#" method="post">
+        <section>
+            <h2>Termo de Consentimento</h2>
+            <div class="consent-box">
+                <h3>REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE</h3>
+                <p>Você está sendo convidado(a) a participar, de forma voluntária, da pesquisa intitulada "ESTUDO DAS NECESSIDADES INFORMACIONAIS DOS USUÁRIOS DISCENTES NA MIGRAÇÃO DO SISTEMA DE GERENCIAMENTO DE CONTEÚDO: ESTUDO DE CASO DO SITE DO CURSO DE ARQUIVOLOGIA DA FACULDADE DE CIÊNCIA DA INFORMAÇÃO". Esta pesquisa é conduzida por Hudson Gomes da Silva Arruda, discente do Programa de Pós-Graduação em Ciência da Informação da Universidade de Brasília, sob orientação da professora Dra. Ivette Kafure Muñoz. O objetivo do estudo é compreender como os estudantes do curso de Arquivologia acessam e utilizam as informações disponibilizadas no site do curso, visando propor melhorias durante o processo de migração do atual sistema Joomla para a plataforma WordPress.</p>
+                <p>A sua participação consistirá no preenchimento de um questionário eletrônico, com perguntas objetivas e abertas, cujo tempo estimado de resposta é de 15 a 20 minutos. As questões têm como foco suas experiências, percepções e dificuldades em acessar informações acadêmicas por meio do site do curso. Sua contribuição é essencial para que possamos compreender melhor as reais necessidades dos usuários discentes.</p>
+                <p>A sua participação poderá envolver alguns riscos, como desconforto ao relatar dificuldades de acesso à informação, ou eventuais preocupações com a privacidade dos dados compartilhados. Para minimizar esses riscos, garantimos que todas as informações prestadas serão tratadas com sigilo e anonimato. Nenhum dado permitirá a sua identificação. O questionário não exigirá nome, matrícula ou qualquer outro dado identificável.</p>
+                <p>Os dados coletados serão utilizados exclusivamente para fins acadêmicos e científicos e ficarão sob a guarda e responsabilidade do pesquisador por um período mínimo de cinco anos após o término da pesquisa, conforme determina a Resolução CNS nº 510/2016, Art. 28, Inciso IV. Durante esse período, os dados estarão armazenados em repositório digital seguro, com acesso restrito e protegido por senha.</p>
+                <p>Sua participação poderá trazer benefícios, como a melhoria da acessibilidade e usabilidade do site do curso, contribuindo para um ambiente mais eficiente e inclusivo na busca por informações acadêmicas. Os resultados da pesquisa serão divulgados em uma dissertação de mestrado publicada no Repositório Institucional da UnB (RIUnB) disponível publicamente no site da Biblioteca Central da UnB (BCE) em linguagem clara e acessível, conforme estabelecido no Art. 17, inciso VI da Resolução CNS nº 510/2016.</p>
+                <p>Caso ocorra qualquer dano decorrente da pesquisa, você terá direito à devida indenização, nos termos da Lei (Resolução CNS nº 510/2016, Art. 9º). Além disso, caso você tenha despesas diretamente relacionadas à sua participação, como custos com internet, poderá solicitar ressarcimento previamente acordado com o pesquisador.</p>
+                <p>O Comitê de Ética em Pesquisa em Ciências Humanas e Sociais da Universidade de Brasília (CEP/CHS/UnB) é responsável por avaliar se esta pesquisa está de acordo com os princípios éticos que protegem os participantes. Já a Comissão Nacional de Ética em Pesquisa – Conep, órgão nacional responsável pela regulação das pesquisas envolvendo seres humanos no Brasil, pode ser contatada no endereço: SRTVN - Via W5 Norte, Edifício PO700 - Quadra 701, Lote D, 5º andar, Asa Norte, CEP 70719-040 – Brasília (DF), Telefone: (61) 3315-5877, com atendimento das 9h às 18h.</p>
+                <p>Você poderá esclarecer dúvidas ou obter mais informações entrando em contato com o pesquisador responsável pela presente pesquisa pelo telefone (61) 98163-0336 ou pelo e-mail hudsongomesarruda@gmail.com ou ainda com o CEP/CHS/UnB Campus Universitário Darcy Ribeiro, Faculdade de Direito, telefone (61) 3107-1592 e-mail: cep_chs@unb.br com atendimento das 8h às 14h.</p>
+            </div>
+            <div class="consent-checkbox">
+                <input type="checkbox" id="consent-terms">
+                <label for="consent-terms">Ao preencher e enviar o presente formulário, você declara que foi devidamente informado(a) sobre os objetivos, procedimentos, riscos e benefícios desta pesquisa, e que sua participação é voluntária e poderá ser interrompida a qualquer momento, sem qualquer prejuízo.</label>
+            </div>
+        </section>
+        
         <section>
             <h2>1. Informações Gerais</h2>
             <div class="form-group">
@@ -339,25 +361,6 @@
                 <textarea id="comentarios" name="comentarios"></textarea>
             </div>
         </section>
-        
-        <section>
-            <h2>Termo de Consentimento</h2>
-            <div class="consent-box">
-                <h3>REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE</h3>
-                <p>Você está sendo convidado(a) a participar, de forma voluntária, da pesquisa intitulada "ESTUDO DAS NECESSIDADES INFORMACIONAIS DOS USUÁRIOS DISCENTES NA MIGRAÇÃO DO SISTEMA DE GERENCIAMENTO DE CONTEÚDO: ESTUDO DE CASO DO SITE DO CURSO DE ARQUIVOLOGIA DA FACULDADE DE CIÊNCIA DA INFORMAÇÃO". Esta pesquisa é conduzida por Hudson Gomes da Silva Arruda, discente do Programa de Pós-Graduação em Ciência da Informação da Universidade de Brasília, sob orientação da professora Dra. Ivette Kafure Muñoz. O objetivo do estudo é compreender como os estudantes do curso de Arquivologia acessam e utilizam as informações disponibilizadas no site do curso, visando propor melhorias durante o processo de migração do atual sistema Joomla para a plataforma WordPress.</p>
-                <p>A sua participação consistirá no preenchimento de um questionário eletrônico, com perguntas objetivas e abertas, cujo tempo estimado de resposta é de 15 a 20 minutos. As questões têm como foco suas experiências, percepções e dificuldades em acessar informações acadêmicas por meio do site do curso. Sua contribuição é essencial para que possamos compreender melhor as reais necessidades dos usuários discentes.</p>
-                <p>A sua participação poderá envolver alguns riscos, como desconforto ao relatar dificuldades de acesso à informação, ou eventuais preocupações com a privacidade dos dados compartilhados. Para minimizar esses riscos, garantimos que todas as informações prestadas serão tratadas com sigilo e anonimato. Nenhum dado permitirá a sua identificação. O questionário não exigirá nome, matrícula ou qualquer outro dado identificável.</p>
-                <p>Os dados coletados serão utilizados exclusivamente para fins acadêmicos e científicos e ficarão sob a guarda e responsabilidade do pesquisador por um período mínimo de cinco anos após o término da pesquisa, conforme determina a Resolução CNS nº 510/2016, Art. 28, Inciso IV. Durante esse período, os dados estarão armazenados em repositório digital seguro, com acesso restrito e protegido por senha.</p>
-                <p>Sua participação poderá trazer benefícios, como a melhoria da acessibilidade e usabilidade do site do curso, contribuindo para um ambiente mais eficiente e inclusivo na busca por informações acadêmicas. Os resultados da pesquisa serão divulgados em uma dissertação de mestrado publicada no Repositório Institucional da UnB (RIUnB) disponível publicamente no site da Biblioteca Central da UnB (BCE) em linguagem clara e acessível, conforme estabelecido no Art. 17, inciso VI da Resolução CNS nº 510/2016.</p>
-                <p>Caso ocorra qualquer dano decorrente da pesquisa, você terá direito à devida indenização, nos termos da Lei (Resolução CNS nº 510/2016, Art. 9º). Além disso, caso você tenha despesas diretamente relacionadas à sua participação, como custos com internet, poderá solicitar ressarcimento previamente acordado com o pesquisador.</p>
-                <p>O Comitê de Ética em Pesquisa em Ciências Humanas e Sociais da Universidade de Brasília (CEP/CHS/UnB) é responsável por avaliar se esta pesquisa está de acordo com os princípios éticos que protegem os participantes. Já a Comissão Nacional de Ética em Pesquisa – Conep, órgão nacional responsável pela regulação das pesquisas envolvendo seres humanos no Brasil, pode ser contatada no endereço: SRTVN - Via W5 Norte, Edifício PO700 - Quadra 701, Lote D, 5º andar, Asa Norte, CEP 70719-040 – Brasília (DF), Telefone: (61) 3315-5877, com atendimento das 9h às 18h.</p>
-                <p>Você poderá esclarecer dúvidas ou obter mais informações entrando em contato com o pesquisador responsável pela presente pesquisa pelo telefone (61) 98163-0336 ou pelo e-mail hudsongomesarruda@gmail.com ou ainda com o CEP/CHS/UnB Campus Universitário Darcy Ribeiro, Faculdade de Direito, telefone (61) 3107-1592 e-mail: cep_chs@unb.br com atendimento das 8h às 14h.</p>
-            </div>
-            <div class="consent-checkbox">
-                <input type="checkbox" id="consent-terms">
-                <label for="consent-terms">Ao preencher e enviar o presente formulário, você declara que foi devidamente informado(a) sobre os objetivos, procedimentos, riscos e benefícios desta pesquisa, e que sua participação é voluntária e poderá ser interrompida a qualquer momento, sem qualquer prejuízo.</label>
-            </div>
-        </section>
 
         <button type="submit" id="submit-btn" disabled>Enviar Questionário</button>
     </form>
@@ -378,6 +381,7 @@
         const linksQuebradosSim = document.getElementById('links-sim');
         const linksQuebradosEspecificar = document.getElementById('links-especificacao');
         const infoNecessariasNao = document.getElementById('info-necessarias-nao');
+        const infoNecessariasParcialmente = document.getElementById('info-necessarias-parcialmente');
         const infoFaltando = document.getElementById('info-faltando');
         const funcOutros = document.getElementById('func-outros');
         const funcOutrosText = document.getElementById('func-outros-text');
@@ -412,14 +416,14 @@
                 infoFaltando.classList.remove('hidden');
             }
         });
+        infoNecessariasParcialmente.addEventListener('change', function() {
+            if (this.checked) {
+                infoFaltando.classList.remove('hidden');
+            }
+        });
         document.getElementById('info-necessarias-sim').addEventListener('change', function() {
             if (this.checked) {
                 infoFaltando.classList.add('hidden');
-            }
-        });
-        document.getElementById('info-necessarias-parcialmente').addEventListener('change', function() {
-            if (this.checked) {
-                infoFaltando.classList.remove('hidden');
             }
         });
 
@@ -436,10 +440,6 @@
         // Lidar com o envio do formulário
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio padrão do formulário
-
-            // O JavaScript aqui impede o envio, então o Netlify não tentará processar
-            // os dados. Para um formulário real, você usaria um serviço de backend
-            // ou um serviço como o Formspree para capturar as informações.
 
             // 1. Mostrar a mensagem de agradecimento
             thankYouMessage.style.display = 'block';
