@@ -1,93 +1,436 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Questionário - Pesquisa Arquivologia</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Avaliação do site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Cores da UnB - Azul: #002e70 (Pantone 654), Verde: #00874e (Pantone 348) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e0f2f7; /* Um tom pastel de azul claro, mais suave */
+            color: #37474f; /* Cor de texto mais suave (cinza-azulado escuro) */
+        }
+        /* Estilos para os modais (sucesso e erro) */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Estilo para a área de texto do RCLE */
+        .rcle-container {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        /* Aplica as cores da UnB aos elementos */
+        .border-unb-blue {
+            border-color: #002e70; /* Azul Pantone 654 */
+        }
+        .text-unb-green {
+            color: #00874e; /* Verde Pantone 348 */
+        }
+        .bg-unb-green {
+            background-color: #00874e; /* Verde Pantone 348 */
+        }
+        .hover\:bg-unb-green-dark:hover {
+            background-color: #00663a; /* Tom mais escuro do verde para o hover */
+        }
+        .focus\:ring-unb-green:focus {
+            --tw-ring-color: #00874e; /* Anel de foco verde */
+        }
+        .form-section {
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: white;
+        }
+        .form-title-text {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d3748; /* Tom de cinza escuro */
+            margin-bottom: 0.5rem;
+        }
+        .form-description-text {
+            font-size: 0.875rem;
+            color: #4a5568; /* Tom de cinza médio */
+        }
+
+        /* Estilos para colorir suavemente os inputs */
+        input[type="text"], textarea {
+            background-color: #f5fafd; /* Um azul pastel muito suave para inputs de texto */
+        }
+        input[type="radio"], input[type="checkbox"] {
+            background-color: #ebf5f9; /* Um azul pastel um pouco mais escuro para radios e checkboxes */
+            border-color: #c0d9e4; /* Cor da borda para contrastar */
+        }
+        /* Ajuste para o texto dentro do RCLE container, para manter a leitura clara */
+        .rcle-container p {
+            color: #4a5568; /* Mantém um cinza médio para o texto do RCLE */
+        }
+        /* Ajuste para as labels dos radio/checkbox para herdar a cor do body, se necessário */
+        .block.text-sm.font-medium.text-gray-700 {
+            color: inherit; /* Garante que as labels herdem a cor do body */
+        }
+        .ml-3.block.text-sm.font-medium.text-gray-700 {
+            color: inherit;
+        }
+        
+        /* Layout de duas colunas para os semestres */
+        .semestre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 2 colunas, responsivas */
+            gap: 0.75rem; /* Espaçamento entre os itens */
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-  <!-- Cabeçalho -->
-  <header class="bg-[#2a4d8f]/90 text-white shadow-lg p-6 text-center">
-    <h1 class="text-2xl font-bold">Pesquisa - Arquivologia FCI/UnB</h1>
-    <p class="text-sm">Estudo das necessidades informacionais dos discentes</p>
-  </header>
-
-  <main class="max-w-3xl mx-auto p-6 space-y-8">
-    <!-- RCLE -->
-    <section class="bg-white border-l-4 border-[#2d7a4f]/70 shadow-md rounded-xl p-6">
-      <h2 class="text-xl font-semibold text-[#2a4d8f] mb-4">
-        REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE
-      </h2>
-      <p class="text-gray-700 mb-4">
-        Você está sendo convidado(a) a participar, como voluntário(a), da pesquisa
-        “Estudo das necessidades informacionais dos usuários discentes na migração do sistema de gerenciamento de conteúdo:
-        estudo de caso do site do curso de Arquivologia da Faculdade de Ciência da Informação”.
-      </p>
-      <p class="text-gray-700 mb-4">
-        Sua participação é voluntária e todas as informações coletadas serão utilizadas apenas para fins acadêmicos, garantindo sigilo e anonimato.
-      </p>
-      <label class="flex items-center space-x-2 mt-4">
-        <input type="checkbox" required class="w-5 h-5 text-[#2d7a4f] border-gray-300 rounded">
-        <span class="text-gray-800 font-medium">Li e aceito participar da pesquisa</span>
-      </label>
-    </section>
-
-    <!-- Questionário -->
-    <form class="space-y-6">
-      <!-- Exemplo de pergunta -->
-      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
-        <label class="block text-gray-800 font-medium mb-2">
-          1. Qual o seu semestre atual no curso?
-        </label>
-        <select class="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#2a4d8f]/60">
-          <option value="">Selecione</option>
-          <option value="1">1º semestre</option>
-          <option value="2">2º semestre</option>
-          <option value="3">3º semestre</option>
-          <option value="4">4º semestre</option>
-          <option value="5+">5º ou mais</option>
-        </select>
-      </div>
-
-      <!-- Outra pergunta -->
-      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
-        <label class="block text-gray-800 font-medium mb-2">
-          2. Você costuma acessar o site do curso de Arquivologia?
-        </label>
-        <div class="space-y-2">
-          <label class="flex items-center space-x-2">
-            <input type="radio" name="acesso" value="sim" class="text-[#2d7a4f]">
-            <span>Sim</span>
-          </label>
-          <label class="flex items-center space-x-2">
-            <input type="radio" name="acesso" value="nao" class="text-[#2d7a4f]">
-            <span>Não</span>
-          </label>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-8">
+    <div class="max-w-3xl w-full bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border-t-8 border-unb-blue">
+        <div class="mb-6">
+            <h1 id="form-title" class="text-3xl font-semibold text-gray-800 mb-2">QUESTIONÁRIO DE AVALIAÇÃO SOBRE O SITE DO CURSO DE ARQUIVOLOGIA</h1>
+            <p id="form-description" class="text-sm text-gray-500">Sua opinião é muito importante para nós! Por favor, dedique alguns minutos para responder este questionário e nos ajudar a melhorar o site do curso de Arquivologia.</p>
         </div>
-      </div>
 
-      <!-- Pergunta aberta -->
-      <div class="bg-white shadow rounded-xl p-6 border border-gray-200">
-        <label class="block text-gray-800 font-medium mb-2">
-          3. Em sua opinião, quais melhorias seriam importantes para o site?
-        </label>
-        <textarea rows="4" class="w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-[#2d7a4f]/60"></textarea>
-      </div>
+        <div class="form-section">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE</h2>
+            <div class="rcle-container mb-4 text-sm text-gray-600 leading-relaxed p-4 border border-gray-200 rounded-md">
+                <p>Você está sendo convidado(a) a participar, de forma voluntária, da pesquisa intitulada "ESTUDO DAS NECESSIDADES INFORMACIONAIS DOS USUÁRIOS DISCENTES NA MIGRAÇÃO DO SISTEMA DE GERENCIAMENTO DE CONTEÚDO: ESTUDO DE CASO DO SITE DO CURSO DE ARQUIVOLOGIA DA FACULDADE DE CIÊNCIA DA INFORMAÇÃO". Esta pesquisa é conduzida por Hudson Gomes da Silva Arruda, discente do Programa de Pós-Graduação em Ciência da Informação da Universidade de Brasília, sob orientação da professora Dra. Ivette Kafure Muñoz. O objetivo do estudo é compreender como os estudantes do curso de Arquivologia acessam e utilizam as informações disponibilizadas no site do curso, visando propor melhorias durante o processo de migração do atual sistema Joomla para a plataforma WordPress.</p>
+                <br>
+                <p>A sua participação consistirá no preenchimento de um questionário eletrônico, com perguntas objetivas e abertas, cujo tempo estimado de resposta é de 15 a 20 minutos. As questões têm como foco suas experiências, percepções e dificuldades em acessar informações acadêmicas por meio do site do curso. Sua contribuição é essencial para que possamos compreender melhor as reais necessidades dos usuários discentes.</p>
+                <br>
+                <p>A sua participação poderá envolver alguns riscos, como desconforto ao relatar dificuldades de acesso à informação, ou eventuais preocupações com a privacidade dos dados compartilhados. Para minimizar esses riscos, garantimos que todas as informações prestadas serão tratadas com sigilo e anonimato. Nenhum dado permitirá a sua identificação. O questionário não exigirá nome, matrícula ou qualquer outro dado identificável.</p>
+                <br>
+                <p>Os dados coletados serão utilizados exclusivamente para fins acadêmicos e científicos e ficarão sob a guarda e responsabilidade do pesquisador por um período mínimo de cinco anos após o término da pesquisa, conforme determina a Resolução CNS nº 510/2016, Art. 28, Inciso IV. Durante esse período, os dados estarão armazenados em repositório digital seguro, com acesso restrito e protegido por senha.</p>
+                <br>
+                <p>Sua participação poderá trazer benefícios, como a melhoria da acessibilidade e usabilidade do site do curso, contribuindo para um ambiente mais eficiente e inclusivo na busca por informações acadêmicas. Os resultados da pesquisa serão divulgados em uma dissertação de mestrado publicada no Repositório Institucional da UnB (RIUnB) disponível publicamente no site da Biblioteca Central da UnB (BCE) em linguagem clara e acessível, conforme estabelecido no Art. 17, inciso VI da Resolução CNS nº 510/2016.</p>
+                <br>
+                <p>Caso ocorra qualquer dano decorrente da pesquisa, você terá direito à devida indenização, nos termos da Lei (Resolução CNS nº 510/2020, Art. 9º). Além disso, caso você tenha despesas diretamente relacionadas à sua participação, como custos com internet, poderá solicitar ressarcimento previamente acordado com o pesquisador.</p>
+                <br>
+                <p>O Comitê de Ética em Pesquisa em Ciências Humanas e Sociais da Universidade de Brasília (CEP/CHS/UnB) é responsável por avaliar se esta pesquisa está de acordo com os princípios éticos que protegem os participantes. Já a Comissão Nacional de Ética em Pesquisa – Conep, órgão nacional responsável pela regulação das pesquisas envolvendo seres humanos no Brasil, pode ser contatada no endereço: SRTVN - Via W5 Norte, Edifício PO700 - Quadra 701, Lote D, 5º andar, Asa Norte, CEP 70719-040 – Brasília (DF), Telefone: (61) 3315-5877, com atendimento das 9h às 18h.</p>
+            </div>
+            <div class="mt-4 flex items-start">
+                <input type="checkbox" id="consent-checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green">
+                <label for="consent-checkbox" class="ml-2 text-sm text-gray-700 leading-snug">
+                    Ao preencher e enviar o presente formulário, você declara que foi devidamente informado(a) sobre os objetivos, procedimentos, riscos e benefícios desta pesquisa, e que sua participação é voluntária e poderá ser interrompida a qualquer momento, sem qualquer prejuízo.
+                </label>
+            </div>
+        </div>
 
-      <!-- Botão enviar -->
-      <div class="text-center">
-        <button type="submit"
-          class="bg-[#2d7a4f]/90 hover:bg-[#2d7a4f] text-white font-bold px-8 py-3 rounded-2xl shadow-md transition">
-          Enviar Respostas
-        </button>
-      </div>
-    </form>
-  </main>
+        <form id="google-forms-clone" name="questionario" method="POST" data-netlify="true">
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">1. Informações Gerais</h2>
+                <div class="mb-4">
+                    <label for="nome" class="block text-base font-medium text-gray-700 mb-2">Nome (opcional):</label>
+                    <input type="text" id="nome" name="nome" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta">
+                </div>
+                <div>
+                    <label class="block text-base font-medium text-gray-700 mb-4">Semestre Atual <span class="text-red-500">*</span></label>
+                    <div class="semestre-grid"> <div class="flex items-center"><input id="semestre-1" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="1º"><label for="semestre-1" class="ml-3 block text-sm font-medium text-gray-700">1º</label></div>
+                        <div class="flex items-center"><input id="semestre-2" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="2º"><label for="semestre-2" class="ml-3 block text-sm font-medium text-gray-700">2º</label></div>
+                        <div class="flex items-center"><input id="semestre-3" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="3º"><label for="semestre-3" class="ml-3 block text-sm font-medium text-gray-700">3º</label></div>
+                        <div class="flex items-center"><input id="semestre-4" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="4º"><label for="semestre-4" class="ml-3 block text-sm font-medium text-gray-700">4º</label></div>
+                        <div class="flex items-center"><input id="semestre-5" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="5º"><label for="semestre-5" class="ml-3 block text-sm font-medium text-gray-700">5º</label></div>
+                        <div class="flex items-center"><input id="semestre-6" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="6º"><label for="semestre-6" class="ml-3 block text-sm font-medium text-gray-700">6º</label></div>
+                        <div class="flex items-center"><input id="semestre-7" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="7º"><label for="semestre-7" class="ml-3 block text-sm font-medium text-gray-700">7º</label></div>
+                        <div class="flex items-center"><input id="semestre-8" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="8º"><label for="semestre-8" class="ml-3 block text-sm font-medium text-gray-700">8º</label></div>
+                        <div class="flex items-center"><input id="semestre-egresso" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Egresso"><label for="semestre-egresso" class="ml-3 block text-sm font-medium text-gray-700">Egresso</label></div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Rodapé -->
-  <footer class="bg-gray-200 text-gray-700 text-center text-sm py-4 mt-10">
-    © 2025 Faculdade de Ciência da Informação - UnB
-  </footer>
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">2. Acesso ao Site</h2>
+                <div class="mb-6">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Com que frequência você acessa o site do curso de Arquivologia? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="frequencia-diariamente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Diariamente"><label for="frequencia-diariamente" class="ml-3 block text-sm font-medium text-gray-700">Diariamente</label></div>
+                        <div class="flex items-center"><input id="frequencia-semanalmente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Semanalmente"><label for="frequencia-semanalmente" class="ml-3 block text-sm font-medium text-gray-700">Semanalmente</label></div>
+                        <div class="flex items-center"><input id="frequencia-mensalmente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Mensalmente"><label for="frequencia-mensalmente" class="ml-3 block text-sm font-medium text-gray-700">Mensalmente</label></div>
+                        <div class="flex items-center"><input id="frequencia-raramente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Raramente"><label for="frequencia-raramente" class="ml-3 block text-sm font-medium text-gray-700">Raramente</label></div>
+                        <div class="flex items-center"><input id="frequencia-nunca" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Nunca"><label for="frequencia-nunca" class="ml-3 block text-sm font-medium text-gray-700">Nunca</label></div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-base font-medium text-gray-700 mb-4">Quais dispositivos você utiliza para acessar o site? (Selecione todos os que se aplicam)</label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="device-pc" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Computador/Notebook"><label for="device-pc" class="ml-3 block text-sm font-medium text-gray-700">Computador/Notebook</label></div>
+                        <div class="flex items-center"><input id="device-tablet" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Tablet"><label for="device-tablet" class="ml-3 block text-sm font-medium text-gray-700">Tablet</label></div>
+                        <div class="flex items-center"><input id="device-smartphone" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Smartphone"><label for="device-smartphone" class="ml-3 block text-sm font-medium text-gray-700">Smartphone</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">3. Navegação e Usabilidade</h2>
+                <div class="mb-6">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Como você avalia a facilidade de navegação no site? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="nav-muito-facil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito fácil"><label for="nav-muito-facil" class="ml-3 block text-sm font-medium text-gray-700">Muito fácil</label></div>
+                        <div class="flex items-center"><input id="nav-facil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Fácil"><label for="nav-facil" class="ml-3 block text-sm font-medium text-gray-700">Fácil</label></div>
+                        <div class="flex items-center"><input id="nav-neutra" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Neutra"><label for="nav-neutra" class="ml-3 block text-sm font-medium text-gray-700">Neutra</label></div>
+                        <div class="flex items-center"><input id="nav-dificil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Difícil"><label for="nav-dificil" class="ml-3 block text-sm font-medium text-gray-700">Difícil</label></div>
+                        <div class="flex items-center"><input id="nav-muito-dificil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito difícil"><label for="nav-muito-dificil" class="ml-3 block text-sm font-medium text-gray-700">Muito difícil</label></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Você avalia a responsividade do site (se adapta a diferentes telas) como: <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="resp-excelente" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="resp-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                        <div class="flex items-center"><input id="resp-boa" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="resp-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                        <div class="flex items-center"><input id="resp-regular" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="resp-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                        <div class="flex items-center"><input id="resp-ruim" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="resp-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                        <div class="flex items-center"><input id="resp-muito-ruim" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="resp-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Você encontra facilmente as informações que procura no site? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="find-sempre" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sempre"><label for="find-sempre" class="ml-3 block text-sm font-medium text-gray-700">Sempre</label></div>
+                        <div class="flex items-center"><input id="find-frequentemente" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Frequentemente"><label for="find-frequentemente" class="ml-3 block text-sm font-medium text-gray-700">Frequentemente</label></div>
+                        <div class="flex items-center"><input id="find-asvezes" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Às vezes"><label for="find-asvezes" class="ml-3 block text-sm font-medium text-gray-700">Às vezes</label></div>
+                        <div class="flex items-center"><input id="find-raramente" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Raramente"><label for="find-raramente" class="ml-3 block text-sm font-medium text-gray-700">Raramente</label></div>
+                        <div class="flex items-center"><input id="find-nunca" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Nunca"><label for="find-nunca" class="ml-3 block text-sm font-medium text-gray-700">Nunca</label></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Existem links quebrados ou páginas que não carregam corretamente? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="links-sim" name="links-quebrados" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="links-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                        <div class="flex items-center"><input id="links-nao" name="links-quebrados" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="links-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
+                    </div>
+                </div>
+                <div id="links-specify" class="hidden pl-6 border-l-2 border-gray-200">
+                    <label for="links-specify-input" class="block text-sm font-medium text-gray-700 mb-2 mt-4">- Se sim, por favor, especifique quais:</label>
+                    <textarea id="links-specify-input" name="links-specify-input" rows="3" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">4. Conteúdo e Informação</h2>
+                <div class="mb-6">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Como você avalia a qualidade do conteúdo disponível no site? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="qualidade-excelente" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="qualidade-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                        <div class="flex items-center"><input id="qualidade-boa" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="qualidade-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                        <div class="flex items-center"><input id="qualidade-regular" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="qualidade-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                        <div class="flex items-center"><input id="qualidade-ruim" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="qualidade-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                        <div class="flex items-center"><input id="qualidade-muito-ruim" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="qualidade-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-base font-medium text-gray-700 mb-4">O site oferece todas as informações necessárias sobre o curso? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="info-sim" name="info-necessarias" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="info-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                        <div class="flex items-center"><input id="info-parcialmente" name="info-necessarias" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Parcialmente"><label for="info-parcialmente" class="ml-3 block text-sm font-medium text-gray-700">Parcialmente</label></div>
+                        <div class="flex items-center"><input id="info-nao" name="info-necessarias" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="info-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
+                    </div>
+                </div>
+                <div id="info-faltando" class="hidden pl-6 border-l-2 border-gray-200">
+                    <label for="info-faltando-input" class="block text-sm font-medium text-gray-700 mb-2 mt-4">- Se não, que informações estão faltando?</label>
+                    <textarea id="info-faltando-input" name="info-faltando-input" rows="3" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta"></textarea>
+                </div>
+                <div>
+                    <label class="block text-base font-medium text-gray-700 mb-4">A atualização do conteúdo do site é feita regularmente? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="atualizacao-sim" name="atualizacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="atualizacao-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                        <div class="flex items-center"><input id="atualizacao-nao" name="atualizacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="atualizacao-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
+                        <div class="flex items-center"><input id="atualizacao-nao-sei" name="atualizacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não sei"><label for="atualizacao-nao-sei" class="ml-3 block text-sm font-medium text-gray-700">Não sei</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">5. Design e Aparência</h2>
+                <div class="mb-6">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Como você avalia o design e a aparência do site? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="design-excelente" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="design-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                        <div class="flex items-center"><input id="design-boa" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="design-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                        <div class="flex items-center"><input id="design-regular" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="design-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                        <div class="flex items-center"><input id="design-ruim" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="design-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                        <div class="flex items-center"><input id="design-muito-ruim" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="design-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-base font-medium text-gray-700 mb-4">O layout do site é visualmente agradável? <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="layout-sim" name="layout" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="layout-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                        <div class="flex items-center"><input id="layout-nao" name="layout" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="layout-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">6. Funcionalidades e Recursos</h2>
+                <div class="mb-4">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Quais funcionalidades e recursos do site você mais utiliza? (Selecione todos os que se aplicam)</label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="func-noticias" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Notícias e atualizações"><label for="func-noticias" class="ml-3 block text-sm font-medium text-gray-700">Notícias e atualizações</label></div>
+                        <div class="flex items-center"><input id="func-calendario" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Calendário Acadêmico"><label for="func-calendario" class="ml-3 block text-sm font-medium text-gray-700">Calendário Acadêmico</label></div>
+                        <div class="flex items-center"><input id="func-disciplinas" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Informações sobre disciplinas"><label for="func-disciplinas" class="ml-3 block text-sm font-medium text-gray-700">Informações sobre disciplinas</label></div>
+                        <div class="flex items-center"><input id="func-materiais" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Materiais de apoio e estudo"><label for="func-materiais" class="ml-3 block text-sm font-medium text-gray-700">Materiais de apoio e estudo</label></div>
+                        <div class="flex items-center"><input id="func-contatos" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Contatos e informações administrativas"><label for="func-contatos" class="ml-3 block text-sm font-medium text-gray-700">Contatos e informações administrativas</label></div>
+                        <div class="flex items-center"><input id="func-outros-checkbox" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Outro(s)"><label for="func-outros-checkbox" class="ml-3 block text-sm font-medium text-gray-700">Outro(s):</label></div>
+                        <input id="func-outros-input" type="text" name="funcionalidades-outros-input" disabled class="ml-6 mt-2 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm transition duration-150 ease-in-out sm:text-sm" placeholder="Por favor, especifique">
+                    </div>
+                </div>
+                <div>
+                    <label for="func-sugestoes" class="block text-base font-medium text-gray-700 mb-2">Há alguma funcionalidade ou recurso que você gostaria de ver no site?</label>
+                    <textarea id="func-sugestoes" name="func-sugestoes" rows="4" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">7. Comentários e Sugestões</h2>
+                <label for="comentarios" class="block text-base font-medium text-gray-700 mb-2">Por favor, forneça quaisquer comentários adicionais ou sugestões para a melhoria do site:</label>
+                <textarea id="comentarios" name="comentarios" rows="4" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta"></textarea>
+            </div>
+
+            <div class="flex justify-end mt-8">
+                <button type="submit"
+                        class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-unb-green hover:bg-unb-green-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unb-green transition duration-150 ease-in-out">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Obrigado!</h3>
+            <p class="text-gray-700 mb-6">Seu formulário foi enviado com sucesso.</p>
+            <button id="close-modal" class="px-4 py-2 bg-unb-green text-white rounded-md hover:bg-unb-green-dark">Fechar</button>
+        </div>
+    </div>
+
+    <div id="error-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 class="text-xl font-bold text-red-500 mb-4">Atenção!</h3>
+            <p class="text-gray-700 mb-6">Por favor, aceite os termos de consentimento para prosseguir.</p>
+            <button id="close-error-modal" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('google-forms-clone');
+            const linksSim = document.getElementById('links-sim');
+            const linksNao = document.getElementById('links-nao');
+            const linksSpecify = document.getElementById('links-specify');
+            const infoSim = document.getElementById('info-sim');
+            const infoNao = document.getElementById('info-nao');
+            const infoParcialmente = document.getElementById('info-parcialmente');
+            const infoFaltando = document.getElementById('info-faltando');
+            const outrosCheckbox = document.getElementById('func-outros-checkbox');
+            const outrosInput = document.getElementById('func-outros-input');
+            const successModal = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const errorModal = document.getElementById('error-modal');
+            const closeErrorModalBtn = document.getElementById('close-error-modal');
+            const consentCheckbox = document.getElementById('consent-checkbox');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            // Função para mostrar ou esconder o campo de especificação de links quebrados
+            function toggleLinksSpecify() {
+                if (linksSim.checked) {
+                    linksSpecify.classList.remove('hidden');
+                } else {
+                    linksSpecify.classList.add('hidden');
+                    document.getElementById('links-specify-input').value = '';
+                }
+            }
+
+            // Função para mostrar ou esconder o campo de informações faltantes
+            function toggleInfoFaltando() {
+                if (infoNao.checked || infoParcialmente.checked) {
+                    infoFaltando.classList.remove('hidden');
+                } else {
+                    infoFaltando.classList.add('hidden');
+                    document.getElementById('info-faltando-input').value = '';
+                }
+            }
+
+            // Event listeners para os campos condicionais
+            linksSim.addEventListener('change', toggleLinksSpecify);
+            linksNao.addEventListener('change', toggleLinksSpecify);
+            infoSim.addEventListener('change', toggleInfoFaltando);
+            infoNao.addEventListener('change', toggleInfoFaltando);
+            infoParcialmente.addEventListener('change', toggleInfoFaltando);
+
+            // Listener para o checkbox "Outro(s)"
+            outrosCheckbox.addEventListener('change', (event) => {
+                outrosInput.disabled = !event.target.checked;
+                if (!event.target.checked) {
+                    outrosInput.value = '';
+                }
+            });
+
+            // Adiciona um ouvinte de evento para o envio do formulário
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Impede o envio padrão
+
+                if (!consentCheckbox.checked) {
+                    errorModal.classList.remove('hidden');
+                    return;
+                }
+
+                // Desabilita o botão para evitar cliques duplicados
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                
+                // O Netlify Forms processa a submissão nativa do formulário
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                });
+                
+                if (response.ok) {
+                    // Exibe o modal de sucesso
+                    successModal.classList.remove('hidden');
+                
+                    // Bloqueia o formulário desabilitando todos os elementos
+                    const formElements = form.elements;
+                    for (let i = 0; i < formElements.length; i++) {
+                        formElements[i].disabled = true;
+                    }
+
+                    // Muda o texto do botão para "Obrigado"
+                    submitBtn.textContent = 'Obrigado';
+                } else {
+                    // Trata erros de resposta do servidor
+                    console.error('Falha no envio do formulário.');
+                    alert('Houve um erro ao enviar o formulário. Por favor, tente novamente.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar';
+                }
+            });
+
+            // Adiciona um ouvinte para fechar o modal de sucesso
+            closeModalBtn.addEventListener('click', () => {
+                successModal.classList.add('hidden');
+            });
+
+            // Adiciona um ouvinte para fechar o modal de erro
+            closeErrorModalBtn.addEventListener('click', () => {
+                errorModal.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
