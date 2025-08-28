@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionário Avaliativo</title>
+    <title>Questionário de Avaliação</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Cores da UnB - Azul: #002e70 (Pantone 654), Verde: #00874e (Pantone 348) */
@@ -155,6 +155,17 @@
                         <div class="flex items-center"><input id="device-pc" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Computador/Notebook"><label for="device-pc" class="ml-3 block text-sm font-medium text-gray-700">Computador/Notebook</label></div>
                         <div class="flex items-center"><input id="device-tablet" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Tablet"><label for="device-tablet" class="ml-3 block text-sm font-medium text-gray-700">Tablet</label></div>
                         <div class="flex items-center"><input id="device-smartphone" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Smartphone"><label for="device-smartphone" class="ml-3 block text-sm font-medium text-gray-700">Smartphone</label></div>
+                    </div>
+                </div>
+                <!-- Nova pergunta sobre responsividade -->
+                <div class="mb-4">
+                    <label class="block text-base font-medium text-gray-700 mb-4">Você avalia a responsividade do site (se adapta a diferentes telas) como: <span class="text-red-500">*</span></label>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><input id="resp-excelente" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="resp-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                        <div class="flex items-center"><input id="resp-boa" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="resp-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                        <div class="flex items-center"><input id="resp-regular" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="resp-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                        <div class="flex items-center"><input id="resp-ruim" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="resp-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                        <div class="flex items-center"><input id="resp-muito-ruim" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="resp-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
                     </div>
                 </div>
             </div>
