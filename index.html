@@ -27,6 +27,14 @@
             width: 100%; /* Largura total */
             position: relative; /* Para permitir que o formulário "flutue" sobre ele um pouco */
         }
+            /* Estilo para a logo flutuante */
+            .floating-logo {
+                position: absolute;
+                top: 20px; /* Distância do topo */
+                left: 20px; /* Distância da esquerda */
+                height: 20px; /* Altura da imagem */
+                z-index: 20; /* Garante que a logo fique acima de outros elementos */
+            }
         /* Ajusta o posicionamento do formulário para "subir" um pouco no banner */
         .form-container-wrapper {
             margin-top: -80px; /* Valor negativo para sobrepor a imagem, ajuste se necessário */
@@ -181,6 +189,7 @@
 
     <div class="form-container-wrapper">
         <div class="max-w-3xl w-full bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border-t-8 border-unb-blue">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL3-OxIx0b0KqgmFPlE0_cOW3WQBjww6la5arwVDnULugQ5t-nVrEXQBwtHp6FXcHQ_4i_IIA4nFyx4hdNoJQaWVPwJy7x4HHp4FmcC__B0GYo4X0o7hWqttcZOL8KmgAv_JzndVO5WISD2Iurfl6arVXIXOrHBhVAOTmvopzQnLWML3G9THLWHw/s1600/as_bas_cor.png" alt="Logotipo UnB" class="floating-logo">
             <div class="mb-6">
                 <h1 id="form-title" class="text-3xl font-semibold mb-2 gradient-text">QUESTIONÁRIO DE AVALIAÇÃO SOBRE O SITE DO CURSO DE ARQUIVOLOGIA</h1>
                 <p id="form-description" class="text-sm text-gray-500">Sua opinião é muito importante! Por favor, dedique alguns minutos para responder este questionário e nos ajudar a melhorar o site do curso de Arquivologia.</p>
