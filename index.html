@@ -149,37 +149,38 @@
             -webkit-text-fill-color: transparent;
             color: transparent; /* Fallback para navegadores que não suportam */
         }
-        .footer {
-    background-color: #ffffff;
-    color: #4a5568;
-    padding: 0.5rem 0; /* Espaçamento interno menor para diminuir a altura */
-    text-align: center;
-    font-size: 0.75rem; /* Tamanho da fonte diminuído */
-    border-top: 1px solid #a0aec0;
-    margin-top: auto;
-}
-.footer-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem; /* Espaçamento menor entre a imagem e o texto */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-.footer-image {
-    height: 20px; /* Altura da imagem alterada para 20px */
-    max-width: 100%;
-}
 
+        /* Estilos do Rodapé */
+        .footer {
+            background-color: #ffffff; /* Cor de fundo alterada para branco */
+            color: #4a5568;
+            padding: 0.5rem 0; /* Espaçamento interno menor para diminuir a altura */
+            text-align: center;
+            font-size: 0.75rem; /* Tamanho da fonte diminuído */
+            border-top: 1px solid #a0aec0;
+            margin-top: auto;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: row; /* Alterado de 'column' para 'row' */
+            align-items: center; /* Alinha verticalmente */
+            justify-content: center;
+            gap: 0.5rem; /* Espaçamento menor entre a imagem e o texto */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .footer-image {
+            height: 20px; /* Altura da imagem alterada para 20px */
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="top-background-banner">
-        </div>
+    </div>
 
-    <div class="form-container-wrapper p-4 sm:p-6 md:p-8">
+    <div class="form-container-wrapper">
         <div class="max-w-3xl w-full bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border-t-8 border-unb-blue">
             <div class="mb-6">
                 <h1 id="form-title" class="text-3xl font-semibold mb-2 gradient-text">QUESTIONÁRIO DE AVALIAÇÃO SOBRE O SITE DO CURSO DE ARQUIVOLOGIA</h1>
@@ -199,11 +200,9 @@
                     <br>
                     <p>Sua participação poderá trazer benefícios, como a melhoria da acessibilidade e usabilidade do site do curso, contribuindo para um ambiente mais eficiente e inclusivo na busca por informações acadêmicas. Os resultados da pesquisa serão divulgados em uma dissertação de mestrado publicada no Repositório Institucional da UnB (RIUnB) disponível publicamente no site da Biblioteca Central da UnB (BCE) em linguagem clara e acessível, conforme estabelecido no Art. 17, inciso VI da Resolução CNS nº 510/2016.</p>
                     <br>
-                    <p>Caso ocorra qualquer dano decorrente da pesquisa, você terá direito à devida indenização, nos termos da Lei (Resolução CNS nº 510/2020, Art. 9º). Além disso, caso você tenha despesas diretamente relacionadas à sua participação, como custos com internet, poderá solicitar ressarcimento previamente acordado com o pesquisador.</p>
-                    <br>
                     <p>O Comitê de Ética em Pesquisa em Ciências Humanas e Sociais da Universidade de Brasília (CEP/CHS/UnB) é responsável por avaliar se esta pesquisa está de acordo com os princípios éticos que protegem os participantes. Já a Comissão Nacional de Ética em Pesquisa – Conep, órgão nacional responsável pela regulação das pesquisas envolvendo seres humanos no Brasil, pode ser contatada no endereço: SRTVN - Via W5 Norte, Edifício PO700 - Quadra 701, Lote D, 5º andar, Asa Norte, CEP 70719-040 – Brasília (DF), Telefone: (61) 3315-5877, com atendimento das 9h às 18h.</p>
                 </div>
-                <div class="mt-4 flex items-start">
+                <div class="mt-4 flex items-start" id="consent-section">
                     <input type="checkbox" id="consent-checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green">
                     <label for="consent-checkbox" class="ml-2 text-sm text-gray-700 leading-snug">
                         Ao preencher e enviar o presente formulário, você declara que foi devidamente informado(a) sobre os objetivos, procedimentos, riscos e benefícios desta pesquisa, e que sua participação é voluntária e poderá ser interrompida a qualquer momento, sem qualquer prejuízo.
@@ -432,6 +431,7 @@
             const closeErrorModalBtn = document.getElementById('close-error-modal');
             const consentCheckbox = document.getElementById('consent-checkbox');
             const submitBtn = form.querySelector('button[type="submit"]');
+            const consentSection = document.getElementById('consent-section');
             
             // Função para mostrar ou esconder o campo de especificação de links quebrados
             function toggleLinksSpecify() {
@@ -473,6 +473,16 @@
                 event.preventDefault(); // Impede o envio padrão
 
                 if (!consentCheckbox.checked) {
+                    // Rola a página para o topo da seção de consentimento
+                    consentSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Adiciona um destaque visual e remove após 3 segundos
+                    consentCheckbox.classList.add('ring-4', 'ring-red-500', 'ring-offset-2');
+                    setTimeout(() => {
+                        consentCheckbox.classList.remove('ring-4', 'ring-red-500', 'ring-offset-2');
+                    }, 3000);
+
+                    // Exibe o modal de erro sem influenciar a escolha
                     errorModal.classList.remove('hidden');
                     return;
                 }
