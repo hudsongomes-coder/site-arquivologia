@@ -10,48 +10,49 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e0f2f7;
-            color: #37474f;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #e0f2f7; /* Um tom pastel de azul claro, mais suave */
+            color: #37474f; /* Cor de texto mais suave (cinza-azulado escuro) */
+            margin: 0; /* Remove margem padrão do body */
+            display: flex; /* Para flexbox no body */
+            flex-direction: column; /* Organiza os filhos em coluna */
+            min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
         }
         /* Estilos para o background do topo */
         .top-background-banner {
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-PhcsuZhKuWZK4VuHLK8-zp5fdVUd037_q7ThwwnGwiwRVRSqjxM9XLRwCNzAZkjVQA-LHtGzjue_4uQ97TOz9qWtHLsPdRlJ7I6usfJVOr1Tgimp48KdFNiV7wpdjFBK_DS_f0jA-ku0halOrUyqIDipRXKp_vYyW8UJPOnAETh7CaIincYGAA/s844/quest_banner.png');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            height: 200px;
-            width: 100%;
-            position: relative;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-PhcsuZhKuWZK4VuHLK8-zp5fdVUd037_q7ThvwnGwiwRVRSqjxM9XLRwCNzAZkjVQA-LHtGzjue_4uQ97TOz9qWtHLsPdRlJ7I6usfJVOr1Tgimp48KdFNiV7wpdjFBK_DS_f0jA-ku0halOrUyqIDipRXKp_vYyW8UJPOnAETh7CaIincYGAA/s844/quest_banner.png'); /* Imagem que você enviou */
+            background-size: cover; /* Cobre a área sem distorcer */
+            background-position: center top; /* Centraliza horizontalmente, alinha ao topo verticalmente */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            height: 200px; /* Altura do banner, ajuste conforme necessário */
+            width: 100%; /* Largura total */
+            position: relative; /* Para permitir que o formulário "flutue" sobre ele um pouco */
         }
         /* Ajusta o posicionamento do formulário para "subir" um pouco no banner */
         .form-container-wrapper {
-            margin-top: -80px;
+            margin-top: -80px; /* Valor negativo para sobrepor a imagem, ajuste se necessário */
             position: relative;
-            z-index: 10;
-            padding-bottom: 40px;
+            z-index: 10; /* Garante que o formulário fique acima do banner */
+            padding-bottom: 40px; /* Espaçamento inferior, para não colar no rodapé */
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            flex-grow: 1;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            align-items: flex-start; /* Alinha o formulário no topo da sua área */
+            flex-grow: 1; /* Permite que o wrapper do formulário ocupe o espaço restante */
+            padding-left: 1rem; /* Adiciona padding para telas pequenas */
+            padding-right: 1rem; /* Adiciona padding para telas pequenas */
         }
-        @media (min-width: 640px) {
+        @media (min-width: 640px) { /* sm breakpoint */
             .form-container-wrapper {
                 padding-left: 1.5rem;
                 padding-right: 1.5rem;
             }
         }
-        @media (min-width: 768px) {
+        @media (min-width: 768px) { /* md breakpoint */
             .form-container-wrapper {
                 padding-left: 2rem;
                 padding-right: 2rem;
             }
         }
+
         /* Estilos para os modais (sucesso e erro) */
         .modal {
             position: fixed;
@@ -76,24 +77,24 @@
         .rcle-container {
             max-height: 250px;
             overflow-y: auto;
-            background-color: #f0f8ff;
-            border: 1px solid #d4eaf7;
+            background-color: #f0f8ff; /* Cor de fundo adicionada */
+            border: 1px solid #d4eaf7; /* Ajuste sutil na borda para combinar */
         }
         /* Aplica as cores da UnB aos elementos */
         .border-unb-blue {
-            border-color: #002e70;
+            border-color: #002e70; /* Azul Pantone 654 */
         }
         .text-unb-green {
-            color: #00874e;
+            color: #00874e; /* Verde Pantone 348 */
         }
         .bg-unb-green {
-            background-color: #00874e;
+            background-color: #00874e; /* Verde Pantone 348 */
         }
         .hover\:bg-unb-green-dark:hover {
-            background-color: #00663a;
+            background-color: #00663a; /* Tom mais escuro do verde para o hover */
         }
         .focus\:ring-unb-green:focus {
-            --tw-ring-color: #00874e;
+            --tw-ring-color: #00874e; /* Anel de foco verde */
         }
         .form-section {
             border-radius: 0.75rem;
@@ -105,28 +106,29 @@
         .form-title-text {
             font-size: 2rem;
             font-weight: 600;
-            color: #2d3748;
+            color: #2d3748; /* Tom de cinza escuro */
             margin-bottom: 0.5rem;
         }
         .form-description-text {
             font-size: 0.875rem;
-            color: #4a5568;
+            color: #4a5568; /* Tom de cinza médio */
         }
+
         /* Estilos para colorir suavemente os inputs */
         input[type="text"], textarea {
-            background-color: #f5fafd;
+            background-color: #f5fafd; /* Um azul pastel muito suave para inputs de texto */
         }
         input[type="radio"], input[type="checkbox"] {
-            background-color: #ebf5f9;
-            border-color: #c0d9e4;
+            background-color: #ebf5f9; /* Um azul pastel um pouco mais escuro para radios e checkboxes */
+            border-color: #c0d9e4; /* Cor da borda para contrastar */
         }
         /* Ajuste para o texto dentro do RCLE container, para manter a leitura clara */
         .rcle-container p {
-            color: #4a5568;
+            color: #4a5568; /* Mantém um cinza médio para o texto do RCLE */
         }
         /* Ajuste para as labels dos radio/checkbox para herdar a cor do body, se necessário */
         .block.text-sm.font-medium.text-gray-700 {
-            color: inherit;
+            color: inherit; /* Garante que as labels herdem a cor do body */
         }
         .ml-3.block.text-sm.font-medium.text-gray-700 {
             color: inherit;
@@ -135,54 +137,42 @@
         /* Layout de duas colunas para os semestres */
         .semestre-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 0.75rem;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 2 colunas, responsivas */
+            gap: 0.75rem; /* Espaçamento entre os itens */
         }
+
         /* Degradê no título principal */
         .gradient-text {
-            background: linear-gradient(to right, #00874e, #002e70);
+            background: linear-gradient(to right, #00874e, #002e70); /* Verde para Azul */
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            color: transparent;
+            color: transparent; /* Fallback para navegadores que não suportam */
         }
+
         /* Estilos do Rodapé */
         .footer {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Cor de fundo alterada para branco */
             color: #4a5568;
-            padding: 0.5rem 0;
+            padding: 0.5rem 0; /* Espaçamento interno menor para diminuir a altura */
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.75rem; /* Tamanho da fonte diminuído */
             border-top: 1px solid #a0aec0;
             margin-top: auto;
         }
         .footer-content {
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-direction: row; /* Alterado de 'column' para 'row' */
+            align-items: center; /* Alinha verticalmente */
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.5rem; /* Espaçamento menor entre a imagem e o texto */
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
         .footer-image {
-            height: 20px;
+            height: 20px; /* Altura da imagem alterada para 20px */
             max-width: 100%;
-        }
-        /* Estilos de erro para validação customizada */
-        .group-error {
-            border: 2px solid #ef4444; /* Borda vermelha para destaque */
-            border-radius: 0.5rem;
-            padding: 0.5rem;
-            margin-top: 0.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-        .error-message {
-            color: #ef4444; /* Cor do texto de erro */
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
         }
     </style>
 </head>
@@ -194,11 +184,11 @@
         <div class="max-w-3xl w-full bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-10 border-t-8 border-unb-blue">
             <div class="mb-6">
                 <h1 id="form-title" class="text-3xl font-semibold mb-2 gradient-text">QUESTIONÁRIO DE AVALIAÇÃO SOBRE O SITE DO CURSO DE ARQUIVOLOGIA</h1>
-                <p id="form-description" class="text-sm text-gray-500">Sua opinião é muito importante para nós! Por favor, dedique alguns minutos para responder este questionário e nos ajudar a melhorar o site do curso de Arquivologia.</p>
+                <p id="form-description" class="text-sm text-gray-500">Sua opinião é muito importante! Por favor, dedique alguns minutos para responder este questionário e nos ajudar a melhorar o site do curso de Arquivologia.</p>
             </div>
 
             <div class="form-section">
-                <h2 class="text-lg font-semibold text-gray-800 mb-4 text-center">REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO - RCLE</h2>
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 text-center">REGISTRO DO CONSENTIMENTO LIVRE E ESCLARECIDO – RCLE</h2>
                 <div class="rcle-container mb-4 text-sm text-gray-600 leading-relaxed p-4 border border-gray-200 rounded-md">
                     <p>Você está sendo convidado(a) a participar, de forma voluntária, da pesquisa intitulada "ESTUDO DAS NECESSIDADES INFORMACIONAIS DOS USUÁRIOS DISCENTES NA MIGRAÇÃO DO SISTEMA DE GERENCIAMENTO DE CONTEÚDO: ESTUDO DE CASO DO SITE DO CURSO DE ARQUIVOLOGIA DA FACULDADE DE CIÊNCIA DA INFORMAÇÃO". Esta pesquisa é conduzida por Hudson Gomes da Silva Arruda, discente do Programa de Pós-Graduação em Ciência da Informação da Universidade de Brasília, sob orientação da professora Dra. Ivette Kafure Muñoz. O objetivo do estudo é compreender como os estudantes do curso de Arquivologia acessam e utilizam as informações disponibilizadas no site do curso, visando propor melhorias durante o processo de migração do atual sistema Joomla para a plataforma WordPress.</p>
                     <br>
@@ -228,20 +218,16 @@
                         <input type="text" id="nome" name="nome" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta">
                     </div>
                     <div>
-                        <label id="semestre-label" for="semestre-group" class="block text-base font-medium text-gray-700 mb-4">Semestre Atual <span class="text-red-500">*</span></label>
-                        <div class="semestre-grid" id="semestre-group" role="group" aria-labelledby="semestre-label">
-                            <div class="flex items-center"><input id="semestre-1" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="1º"><label for="semestre-1" class="ml-3 block text-sm font-medium text-gray-700">1º</label></div>
-                            <div class="flex items-center"><input id="semestre-2" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="2º"><label for="semestre-2" class="ml-3 block text-sm font-medium text-gray-700">2º</label></div>
-                            <div class="flex items-center"><input id="semestre-3" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="3º"><label for="semestre-3" class="ml-3 block text-sm font-medium text-gray-700">3º</label></div>
-                            <div class="flex items-center"><input id="semestre-4" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="4º"><label for="semestre-4" class="ml-3 block text-sm font-medium text-gray-700">4º</label></div>
-                            <div class="flex items-center"><input id="semestre-5" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="5º"><label for="semestre-5" class="ml-3 block text-sm font-medium text-gray-700">5º</label></div>
-                            <div class="flex items-center"><input id="semestre-6" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="6º"><label for="semestre-6" class="ml-3 block text-sm font-medium text-gray-700">6º</label></div>
-                            <div class="flex items-center"><input id="semestre-7" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="7º"><label for="semestre-7" class="ml-3 block text-sm font-medium text-gray-700">7º</label></div>
-                            <div class="flex items-center"><input id="semestre-8" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="8º"><label for="semestre-8" class="ml-3 block text-sm font-medium text-gray-700">8º</label></div>
-                            <div class="flex items-center"><input id="semestre-egresso" name="semestre-atual" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Egresso"><label for="semestre-egresso" class="ml-3 block text-sm font-medium text-gray-700">Egresso</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Semestre Atual <span class="text-red-500">*</span></label>
+                        <div class="semestre-grid"> <div class="flex items-center"><input id="semestre-1" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="1º"><label for="semestre-1" class="ml-3 block text-sm font-medium text-gray-700">1º</label></div>
+                            <div class="flex items-center"><input id="semestre-2" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="2º"><label for="semestre-2" class="ml-3 block text-sm font-medium text-gray-700">2º</label></div>
+                            <div class="flex items-center"><input id="semestre-3" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="3º"><label for="semestre-3" class="ml-3 block text-sm font-medium text-gray-700">3º</label></div>
+                            <div class="flex items-center"><input id="semestre-4" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="4º"><label for="semestre-4" class="ml-3 block text-sm font-medium text-gray-700">4º</label></div>
+                            <div class="flex items-center"><input id="semestre-5" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="5º"><label for="semestre-5" class="ml-3 block text-sm font-medium text-gray-700">5º</label></div>
+                            <div class="flex items-center"><input id="semestre-6" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="6º"><label for="semestre-6" class="ml-3 block text-sm font-medium text-gray-700">6º</label></div>
+                            <div class="flex items-center"><input id="semestre-7" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="7º"><label for="semestre-7" class="ml-3 block text-sm font-medium text-gray-700">7º</label></div>
+                            <div class="flex items-center"><input id="semestre-8" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="8º"><label for="semestre-8" class="ml-3 block text-sm font-medium text-gray-700">8º</label></div>
+                            <div class="flex items-center"><input id="semestre-egresso" name="semestre-atual" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Egresso"><label for="semestre-egresso" class="ml-3 block text-sm font-medium text-gray-700">Egresso</label></div>
                         </div>
                     </div>
                 </div>
@@ -249,27 +235,21 @@
                 <div class="form-section">
                     <h2 class="text-lg font-semibold text-gray-800 mb-4">2. Acesso ao Site</h2>
                     <div class="mb-6">
-                        <label id="frequencia-label" for="frequencia-group" class="block text-base font-medium text-gray-700 mb-4">Com que frequência você acessa o site do curso de Arquivologia? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="frequencia-group" role="group" aria-labelledby="frequencia-label">
-                            <div class="flex items-center"><input id="frequencia-diariamente" name="frequencia" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Diariamente"><label for="frequencia-diariamente" class="ml-3 block text-sm font-medium text-gray-700">Diariamente</label></div>
-                            <div class="flex items-center"><input id="frequencia-semanalmente" name="frequencia" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Semanalmente"><label for="frequencia-semanalmente" class="ml-3 block text-sm font-medium text-gray-700">Semanalmente</label></div>
-                            <div class="flex items-center"><input id="frequencia-mensalmente" name="frequencia" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Mensalmente"><label for="frequencia-mensalmente" class="ml-3 block text-sm font-medium text-gray-700">Mensalmente</label></div>
-                            <div class="flex items-center"><input id="frequencia-raramente" name="frequencia" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Raramente"><label for="frequencia-raramente" class="ml-3 block text-sm font-medium text-gray-700">Raramente</label></div>
-                            <div class="flex items-center"><input id="frequencia-nunca" name="frequencia" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Nunca"><label for="frequencia-nunca" class="ml-3 block text-sm font-medium text-gray-700">Nunca</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Com que frequência você acessa o site do curso de Arquivologia? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="frequencia-diariamente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Diariamente"><label for="frequencia-diariamente" class="ml-3 block text-sm font-medium text-gray-700">Diariamente</label></div>
+                            <div class="flex items-center"><input id="frequencia-semanalmente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Semanalmente"><label for="frequencia-semanalmente" class="ml-3 block text-sm font-medium text-gray-700">Semanalmente</label></div>
+                            <div class="flex items-center"><input id="frequencia-mensalmente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Mensalmente"><label for="frequencia-mensalmente" class="ml-3 block text-sm font-medium text-gray-700">Mensalmente</label></div>
+                            <div class="flex items-center"><input id="frequencia-raramente" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Raramente"><label for="frequencia-raramente" class="ml-3 block text-sm font-medium text-gray-700">Raramente</label></div>
+                            <div class="flex items-center"><input id="frequencia-nunca" name="frequencia" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Nunca"><label for="frequencia-nunca" class="ml-3 block text-sm font-medium text-gray-700">Nunca</label></div>
                         </div>
                     </div>
                     <div>
-                        <label id="dispositivos-label" for="dispositivos-group" class="block text-base font-medium text-gray-700 mb-4">Quais dispositivos você utiliza para acessar o site? (Selecione todos os que se aplicam)</label>
-                        <div class="space-y-3" id="dispositivos-group" role="group" aria-labelledby="dispositivos-label">
+                        <label class="block text-base font-medium text-gray-700 mb-4">Quais dispositivos você utiliza para acessar o site? (Selecione todos os que se aplicam)</label>
+                        <div class="space-y-3">
                             <div class="flex items-center"><input id="device-pc" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Computador/Notebook"><label for="device-pc" class="ml-3 block text-sm font-medium text-gray-700">Computador/Notebook</label></div>
                             <div class="flex items-center"><input id="device-tablet" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Tablet"><label for="device-tablet" class="ml-3 block text-sm font-medium text-gray-700">Tablet</label></div>
                             <div class="flex items-center"><input id="device-smartphone" name="dispositivos" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Smartphone"><label for="device-smartphone" class="ml-3 block text-sm font-medium text-gray-700">Smartphone</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
                         </div>
                     </div>
                 </div>
@@ -277,52 +257,40 @@
                 <div class="form-section">
                     <h2 class="text-lg font-semibold text-gray-800 mb-4">3. Navegação e Usabilidade</h2>
                     <div class="mb-6">
-                        <label id="navegacao-label" for="navegacao-group" class="block text-base font-medium text-gray-700 mb-4">Como você avalia a facilidade de navegação no site? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="navegacao-group" role="group" aria-labelledby="navegacao-label">
-                            <div class="flex items-center"><input id="nav-muito-facil" name="navegacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito fácil"><label for="nav-muito-facil" class="ml-3 block text-sm font-medium text-gray-700">Muito fácil</label></div>
-                            <div class="flex items-center"><input id="nav-facil" name="navegacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Fácil"><label for="nav-facil" class="ml-3 block text-sm font-medium text-gray-700">Fácil</label></div>
-                            <div class="flex items-center"><input id="nav-neutra" name="navegacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Neutra"><label for="nav-neutra" class="ml-3 block text-sm font-medium text-gray-700">Neutra</label></div>
-                            <div class="flex items-center"><input id="nav-dificil" name="navegacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Difícil"><label for="nav-dificil" class="ml-3 block text-sm font-medium text-gray-700">Difícil</label></div>
-                            <div class="flex items-center"><input id="nav-muito-dificil" name="navegacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito difícil"><label for="nav-muito-dificil" class="ml-3 block text-sm font-medium text-gray-700">Muito difícil</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Como você avalia a facilidade de navegação no site? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="nav-muito-facil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito fácil"><label for="nav-muito-facil" class="ml-3 block text-sm font-medium text-gray-700">Muito fácil</label></div>
+                            <div class="flex items-center"><input id="nav-facil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Fácil"><label for="nav-facil" class="ml-3 block text-sm font-medium text-gray-700">Fácil</label></div>
+                            <div class="flex items-center"><input id="nav-neutra" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Neutra"><label for="nav-neutra" class="ml-3 block text-sm font-medium text-gray-700">Neutra</label></div>
+                            <div class="flex items-center"><input id="nav-dificil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Difícil"><label for="nav-dificil" class="ml-3 block text-sm font-medium text-gray-700">Difícil</label></div>
+                            <div class="flex items-center"><input id="nav-muito-dificil" name="navegacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito difícil"><label for="nav-muito-dificil" class="ml-3 block text-sm font-medium text-gray-700">Muito difícil</label></div>
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label id="responsividade-label" for="responsividade-group" class="block text-base font-medium text-gray-700 mb-4">Você avalia a responsividade do site (se adapta a diferentes telas) como: <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="responsividade-group" role="group" aria-labelledby="responsividade-label">
-                            <div class="flex items-center"><input id="resp-excelente" name="responsividade" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="resp-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
-                            <div class="flex items-center"><input id="resp-boa" name="responsividade" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="resp-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
-                            <div class="flex items-center"><input id="resp-regular" name="responsividade" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="resp-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
-                            <div class="flex items-center"><input id="resp-ruim" name="responsividade" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="resp-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
-                            <div class="flex items-center"><input id="resp-muito-ruim" name="responsividade" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="resp-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Você avalia a responsividade do site (se adapta a diferentes telas) como: <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="resp-excelente" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="resp-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                            <div class="flex items-center"><input id="resp-boa" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="resp-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                            <div class="flex items-center"><input id="resp-regular" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="resp-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                            <div class="flex items-center"><input id="resp-ruim" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="resp-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                            <div class="flex items-center"><input id="resp-muito-ruim" name="responsividade" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="resp-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
                         </div>
                     </div>
                     <div class="mb-6">
-                        <label id="encontrar-label" for="encontrar-group" class="block text-base font-medium text-gray-700 mb-4">Você encontra facilmente as informações que procura no site? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="encontrar-group" role="group" aria-labelledby="encontrar-label">
-                            <div class="flex items-center"><input id="find-sempre" name="encontrar" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sempre"><label for="find-sempre" class="ml-3 block text-sm font-medium text-gray-700">Sempre</label></div>
-                            <div class="flex items-center"><input id="find-frequentemente" name="encontrar" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Frequentemente"><label for="find-frequentemente" class="ml-3 block text-sm font-medium text-gray-700">Frequentemente</label></div>
-                            <div class="flex items-center"><input id="find-asvezes" name="encontrar" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Às vezes"><label for="find-asvezes" class="ml-3 block text-sm font-medium text-gray-700">Às vezes</label></div>
-                            <div class="flex items-center"><input id="find-raramente" name="encontrar" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Raramente"><label for="find-raramente" class="ml-3 block text-sm font-medium text-gray-700">Raramente</label></div>
-                            <div class="flex items-center"><input id="find-nunca" name="encontrar" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Nunca"><label for="find-nunca" class="ml-3 block text-sm font-medium text-gray-700">Nunca</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Você encontra facilmente as informações que procura no site? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="find-sempre" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sempre"><label for="find-sempre" class="ml-3 block text-sm font-medium text-gray-700">Sempre</label></div>
+                            <div class="flex items-center"><input id="find-frequentemente" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Frequentemente"><label for="find-frequentemente" class="ml-3 block text-sm font-medium text-gray-700">Frequentemente</label></div>
+                            <div class="flex items-center"><input id="find-asvezes" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Às vezes"><label for="find-asvezes" class="ml-3 block text-sm font-medium text-gray-700">Às vezes</label></div>
+                            <div class="flex items-center"><input id="find-raramente" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Raramente"><label for="find-raramente" class="ml-3 block text-sm font-medium text-gray-700">Raramente</label></div>
+                            <div class="flex items-center"><input id="find-nunca" name="encontrar" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Nunca"><label for="find-nunca" class="ml-3 block text-sm font-medium text-gray-700">Nunca</label></div>
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label id="links-label" for="links-group" class="block text-base font-medium text-gray-700 mb-4">Existem links quebrados ou páginas que não carregam corretamente? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="links-group" role="group" aria-labelledby="links-label">
-                            <div class="flex items-center"><input id="links-sim" name="links-quebrados" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="links-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
-                            <div class="flex items-center"><input id="links-nao" name="links-quebrados" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="links-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Existem links quebrados ou páginas que não carregam corretamente? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="links-sim" name="links-quebrados" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="links-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                            <div class="flex items-center"><input id="links-nao" name="links-quebrados" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="links-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
                         </div>
                     </div>
                     <div id="links-specify" class="hidden pl-6 border-l-2 border-gray-200">
@@ -334,27 +302,21 @@
                 <div class="form-section">
                     <h2 class="text-lg font-semibold text-gray-800 mb-4">4. Conteúdo e Informação</h2>
                     <div class="mb-6">
-                        <label id="qualidade-conteudo-label" for="qualidade-conteudo-group" class="block text-base font-medium text-gray-700 mb-4">Como você avalia a qualidade do conteúdo disponível no site? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="qualidade-conteudo-group" role="group" aria-labelledby="qualidade-conteudo-label">
-                            <div class="flex items-center"><input id="qualidade-excelente" name="qualidade-conteudo" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="qualidade-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
-                            <div class="flex items-center"><input id="qualidade-boa" name="qualidade-conteudo" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="qualidade-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
-                            <div class="flex items-center"><input id="qualidade-regular" name="qualidade-conteudo" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="qualidade-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
-                            <div class="flex items-center"><input id="qualidade-ruim" name="qualidade-conteudo" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="qualidade-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
-                            <div class="flex items-center"><input id="qualidade-muito-ruim" name="qualidade-conteudo" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="qualidade-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Como você avalia a qualidade do conteúdo disponível no site? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="qualidade-excelente" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="qualidade-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                            <div class="flex items-center"><input id="qualidade-boa" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="qualidade-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                            <div class="flex items-center"><input id="qualidade-regular" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="qualidade-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                            <div class="flex items-center"><input id="qualidade-ruim" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="qualidade-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                            <div class="flex items-center"><input id="qualidade-muito-ruim" name="qualidade-conteudo" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="qualidade-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label id="info-necessarias-label" for="info-necessarias-group" class="block text-base font-medium text-gray-700 mb-4">O site oferece todas as informações necessárias sobre o curso? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="info-necessarias-group" role="group" aria-labelledby="info-necessarias-label">
-                            <div class="flex items-center"><input id="info-sim" name="info-necessarias" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="info-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
-                            <div class="flex items-center"><input id="info-parcialmente" name="info-necessarias" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Parcialmente"><label for="info-parcialmente" class="ml-3 block text-sm font-medium text-gray-700">Parcialmente</label></div>
-                            <div class="flex items-center"><input id="info-nao" name="info-necessarias" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="info-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">O site oferece todas as informações necessárias sobre o curso? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="info-sim" name="info-necessarias" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="info-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                            <div class="flex items-center"><input id="info-parcialmente" name="info-necessarias" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Parcialmente"><label for="info-parcialmente" class="ml-3 block text-sm font-medium text-gray-700">Parcialmente</label></div>
+                            <div class="flex items-center"><input id="info-nao" name="info-necessarias" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="info-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
                         </div>
                     </div>
                     <div id="info-faltando" class="hidden pl-6 border-l-2 border-gray-200">
@@ -362,14 +324,11 @@
                         <textarea id="info-faltando-input" name="info-faltando-input" rows="3" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm focus:border-unb-green focus:ring-unb-green transition duration-150 ease-in-out sm:text-sm" placeholder="Sua resposta"></textarea>
                     </div>
                     <div>
-                        <label id="atualizacao-label" for="atualizacao-group" class="block text-base font-medium text-gray-700 mb-4">A atualização do conteúdo do site é feita regularmente? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="atualizacao-group" role="group" aria-labelledby="atualizacao-label">
-                            <div class="flex items-center"><input id="atualizacao-sim" name="atualizacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="atualizacao-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
-                            <div class="flex items-center"><input id="atualizacao-nao" name="atualizacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="atualizacao-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
-                            <div class="flex items-center"><input id="atualizacao-nao-sei" name="atualizacao" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não sei"><label for="atualizacao-nao-sei" class="ml-3 block text-sm font-medium text-gray-700">Não sei</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">A atualização do conteúdo do site é feita regularmente? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="atualizacao-sim" name="atualizacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="atualizacao-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                            <div class="flex items-center"><input id="atualizacao-nao" name="atualizacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="atualizacao-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
+                            <div class="flex items-center"><input id="atualizacao-nao-sei" name="atualizacao" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não sei"><label for="atualizacao-nao-sei" class="ml-3 block text-sm font-medium text-gray-700">Não sei</label></div>
                         </div>
                     </div>
                 </div>
@@ -377,35 +336,29 @@
                 <div class="form-section">
                     <h2 class="text-lg font-semibold text-gray-800 mb-4">5. Design e Aparência</h2>
                     <div class="mb-6">
-                        <label id="design-label" for="design-group" class="block text-base font-medium text-gray-700 mb-4">Como você avalia o design e a aparência do site? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="design-group" role="group" aria-labelledby="design-label">
-                            <div class="flex items-center"><input id="design-excelente" name="design" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="design-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
-                            <div class="flex items-center"><input id="design-boa" name="design" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="design-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
-                            <div class="flex items-center"><input id="design-regular" name="design" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="design-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
-                            <div class="flex items-center"><input id="design-ruim" name="design" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="design-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
-                            <div class="flex items-center"><input id="design-muito-ruim" name="design" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="design-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">Como você avalia o design e a aparência do site? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="design-excelente" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Excelente"><label for="design-excelente" class="ml-3 block text-sm font-medium text-gray-700">Excelente</label></div>
+                            <div class="flex items-center"><input id="design-boa" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Boa"><label for="design-boa" class="ml-3 block text-sm font-medium text-gray-700">Boa</label></div>
+                            <div class="flex items-center"><input id="design-regular" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Regular"><label for="design-regular" class="ml-3 block text-sm font-medium text-gray-700">Regular</label></div>
+                            <div class="flex items-center"><input id="design-ruim" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Ruim"><label for="design-ruim" class="ml-3 block text-sm font-medium text-gray-700">Ruim</label></div>
+                            <div class="flex items-center"><input id="design-muito-ruim" name="design" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Muito ruim"><label for="design-muito-ruim" class="ml-3 block text-sm font-medium text-gray-700">Muito ruim</label></div>
                         </div>
                     </div>
                     <div>
-                        <label id="layout-label" for="layout-group" class="block text-base font-medium text-gray-700 mb-4">O layout do site é visualmente agradável? <span class="text-red-500">*</span></label>
-                        <div class="space-y-3" id="layout-group" role="group" aria-labelledby="layout-label">
-                            <div class="flex items-center"><input id="layout-sim" name="layout" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="layout-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
-                            <div class="flex items-center"><input id="layout-nao" name="layout" type="radio" class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="layout-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
+                        <label class="block text-base font-medium text-gray-700 mb-4">O layout do site é visualmente agradável? <span class="text-red-500">*</span></label>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><input id="layout-sim" name="layout" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Sim"><label for="layout-sim" class="ml-3 block text-sm font-medium text-gray-700">Sim</label></div>
+                            <div class="flex items-center"><input id="layout-nao" name="layout" type="radio" required class="h-4 w-4 text-unb-green border-gray-300 focus:ring-unb-green" value="Não"><label for="layout-nao" class="ml-3 block text-sm font-medium text-gray-700">Não</label></div>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="form-section">
                     <h2 class="text-lg font-semibold text-gray-800 mb-4">6. Funcionalidades e Recursos</h2>
                     <div class="mb-4">
-                        <label id="funcionalidades-label" for="funcionalidades-group" class="block text-base font-medium text-gray-700 mb-4">Quais funcionalidades e recursos do site você mais utiliza? (Selecione todos os que se aplicam)</label>
-                        <div class="space-y-3" id="funcionalidades-group" role="group" aria-labelledby="funcionalidades-label">
+                        <label class="block text-base font-medium text-gray-700 mb-4">Quais funcionalidades e recursos do site você mais utiliza? (Selecione todos os que se aplicam)</label>
+                        <div class="space-y-3">
                             <div class="flex items-center"><input id="func-noticias" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Notícias e atualizações"><label for="func-noticias" class="ml-3 block text-sm font-medium text-gray-700">Notícias e atualizações</label></div>
                             <div class="flex items-center"><input id="func-calendario" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Calendário Acadêmico"><label for="func-calendario" class="ml-3 block text-sm font-medium text-gray-700">Calendário Acadêmico</label></div>
                             <div class="flex items-center"><input id="func-disciplinas" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Informações sobre disciplinas"><label for="func-disciplinas" class="ml-3 block text-sm font-medium text-gray-700">Informações sobre disciplinas</label></div>
@@ -413,9 +366,6 @@
                             <div class="flex items-center"><input id="func-contatos" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Contatos e informações administrativas"><label for="func-contatos" class="ml-3 block text-sm font-medium text-gray-700">Contatos e informações administrativas</label></div>
                             <div class="flex items-center"><input id="func-outros-checkbox" name="funcionalidades" type="checkbox" class="h-4 w-4 text-unb-green rounded border-gray-300 focus:ring-unb-green" value="Outro(s)"><label for="func-outros-checkbox" class="ml-3 block text-sm font-medium text-gray-700">Outro(s):</label></div>
                             <input id="func-outros-input" type="text" name="funcionalidades-outros-input" disabled class="ml-6 mt-2 block w-full rounded-md border border-gray-300 py-2 px-3 text-gray-900 shadow-sm transition duration-150 ease-in-out sm:text-sm" placeholder="Por favor, especifique">
-                        </div>
-                        <div class="validation-feedback hidden" aria-live="polite" aria-atomic="true">
-                            <p class="error-message">Este campo é obrigatório.</p>
                         </div>
                     </div>
                     <div>
@@ -483,7 +433,7 @@
             const submitBtn = form.querySelector('button[type="submit"]');
             const consentSection = document.getElementById('consent-section');
             
-            // Funções para mostrar/esconder campos condicionais
+            // Função para mostrar ou esconder o campo de especificação de links quebrados
             function toggleLinksSpecify() {
                 if (linksSim.checked) {
                     linksSpecify.classList.remove('hidden');
@@ -492,6 +442,8 @@
                     document.getElementById('links-specify-input').value = '';
                 }
             }
+
+            // Função para mostrar ou esconder o campo de informações faltantes
             function toggleInfoFaltando() {
                 if (infoNao.checked || infoParcialmente.checked) {
                     infoFaltando.classList.remove('hidden');
@@ -501,92 +453,64 @@
                 }
             }
 
-            // Mapeamento dos grupos obrigatórios e suas mensagens de erro
-            const requiredGroups = [
-                { name: 'semestre-atual', containerId: 'semestre-group' },
-                { name: 'frequencia', containerId: 'frequencia-group' },
-                { name: 'dispositivos', containerId: 'dispositivos-group' },
-                { name: 'navegacao', containerId: 'navegacao-group' },
-                { name: 'responsividade', containerId: 'responsividade-group' },
-                { name: 'encontrar', containerId: 'encontrar-group' },
-                { name: 'links-quebrados', containerId: 'links-group' },
-                { name: 'qualidade-conteudo', containerId: 'qualidade-conteudo-group' },
-                { name: 'info-necessarias', containerId: 'info-necessarias-group' },
-                { name: 'atualizacao', containerId: 'atualizacao-group' },
-                { name: 'design', containerId: 'design-group' },
-                { name: 'layout', containerId: 'layout-group' },
-                { name: 'funcionalidades', containerId: 'funcionalidades-group' }
-            ];
+            // Event listeners para os campos condicionais
+            linksSim.addEventListener('change', toggleLinksSpecify);
+            linksNao.addEventListener('change', toggleLinksSpecify);
+            infoSim.addEventListener('change', toggleInfoFaltando);
+            infoNao.addEventListener('change', toggleInfoFaltando);
+            infoParcialmente.addEventListener('change', toggleInfoFaltando);
+
+            // Listener para o checkbox "Outro(s)"
+            outrosCheckbox.addEventListener('change', (event) => {
+                outrosInput.disabled = !event.target.checked;
+                if (!event.target.checked) {
+                    outrosInput.value = '';
+                }
+            });
 
             // Adiciona um ouvinte de evento para o envio do formulário
             form.addEventListener('submit', async function(event) {
                 event.preventDefault(); // Impede o envio padrão
 
-                // Limpa todos os destaques e mensagens de erro anteriores
-                document.querySelectorAll('.group-error').forEach(el => {
-                    el.classList.remove('group-error');
-                });
-                document.querySelectorAll('.validation-feedback').forEach(el => {
-                    el.classList.add('hidden');
-                });
-                
-                let formIsValid = true;
-                let firstInvalidGroup = null;
-
-                // 1. Validação do consentimento
                 if (!consentCheckbox.checked) {
-                    formIsValid = false;
-                    consentSection.classList.add('group-error');
+                    // Rola a página para o topo da seção de consentimento
                     consentSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    // Exibe o modal de erro genérico
-                    errorModal.querySelector('p').textContent = 'Por favor, aceite os termos de consentimento para prosseguir.';
+                    
+                    // Adiciona um destaque visual e remove após 3 segundos
+                    consentCheckbox.classList.add('ring-4', 'ring-red-500', 'ring-offset-2');
+                    setTimeout(() => {
+                        consentCheckbox.classList.remove('ring-4', 'ring-red-500', 'ring-offset-2');
+                    }, 3000);
+
+                    // Exibe o modal de erro sem influenciar a escolha
                     errorModal.classList.remove('hidden');
                     return;
                 }
 
-                // 2. Validação dos grupos de rádio e checkbox
-                requiredGroups.forEach(group => {
-                    const inputs = document.querySelectorAll(`input[name="${group.name}"]`);
-                    const container = document.getElementById(group.containerId);
-                    const isChecked = Array.from(inputs).some(input => input.checked);
-
-                    if (!isChecked) {
-                        formIsValid = false;
-                        container.classList.add('group-error');
-                        container.querySelector('.validation-feedback').classList.remove('hidden');
-                        if (!firstInvalidGroup) {
-                            firstInvalidGroup = container;
-                        }
-                    }
-                });
-
-                if (!formIsValid) {
-                    if (firstInvalidGroup) {
-                        firstInvalidGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        // Exibe um modal de erro genérico para campos vazios
-                        errorModal.querySelector('p').textContent = 'Por favor, preencha todos os campos obrigatórios.';
-                        errorModal.classList.remove('hidden');
-                    }
-                    return;
-                }
-
-                // Se a validação passar, o formulário é enviado
+                // Desabilita o botão para evitar cliques duplicados
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Enviando...';
                 
+                // O Netlify Forms processa a submissão nativa do formulário
                 const response = await fetch(form.action, {
                     method: form.method,
                     body: new FormData(form),
                 });
                 
                 if (response.ok) {
+                    // Exibe o modal de sucesso
                     successModal.classList.remove('hidden');
+                
+                    // Bloqueia o formulário desabilitando todos os elementos
                     const formElements = form.elements;
                     for (let i = 0; i < formElements.length; i++) {
                         formElements[i].disabled = true;
                     }
+
+                    // Muda o texto do botão para "Obrigado"
                     submitBtn.textContent = 'Obrigado';
                 } else {
+                    // Trata erros de resposta do servidor
                     console.error('Falha no envio do formulário.');
                     alert('Houve um erro ao enviar o formulário. Por favor, tente novamente.');
                     submitBtn.disabled = false;
@@ -594,21 +518,12 @@
                 }
             });
 
-            // Event listeners para fechar modais e campos condicionais
-            linksSim.addEventListener('change', toggleLinksSpecify);
-            linksNao.addEventListener('change', toggleLinksSpecify);
-            infoSim.addEventListener('change', toggleInfoFaltando);
-            infoNao.addEventListener('change', toggleInfoFaltando);
-            infoParcialmente.addEventListener('change', toggleInfoFaltando);
-            outrosCheckbox.addEventListener('change', (event) => {
-                outrosInput.disabled = !event.target.checked;
-                if (!event.target.checked) {
-                    outrosInput.value = '';
-                }
-            });
+            // Adiciona um ouvinte para fechar o modal de sucesso
             closeModalBtn.addEventListener('click', () => {
                 successModal.classList.add('hidden');
             });
+
+            // Adiciona um ouvinte para fechar o modal de erro
             closeErrorModalBtn.addEventListener('click', () => {
                 errorModal.classList.add('hidden');
             });
