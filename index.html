@@ -13,18 +13,18 @@
             background-color: #e0f2f7; /* Um tom pastel de azul claro, mais suave */
             color: #37474f; /* Cor de texto mais suave (cinza-azulado escuro) */
             margin: 0; /* Remove margem padrão do body */
+            display: flex; /* Para flexbox no body */
+            flex-direction: column; /* Organiza os filhos em coluna */
+            min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
         }
         /* Estilos para o background do topo */
         .top-background-banner {
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1MAoAnWcPTQtC_8cprWvd7eJn5W7seYUcHjwtPFqEsboBIc2g3Vc2l8T5S8wsgswlTtogRrwpnzEQaEml0sbrmdjHSkkfdYAqonUOwZdCZlOgVZUrywLKtbmkabKPSi0s1_p_iUG78OI4fuEPzVN9jXKBvEJ9zC65f6khgJcLizp5lC5Fr3AXHw/s1408/quest_banner.png'); /* Imagem que você enviou */
+            background-image: url('http://googleusercontent.com/file_content/0'); /* Imagem que você enviou */
             background-size: cover; /* Cobre a área sem distorcer */
             background-position: center top; /* Centraliza horizontalmente, alinha ao topo verticalmente */
             background-repeat: no-repeat; /* Não repete a imagem */
             height: 200px; /* Altura do banner, ajuste conforme necessário */
             width: 100%; /* Largura total */
-            display: flex; /* Para centralizar o formulário abaixo, se desejar */
-            align-items: center; /* Alinha verticalmente */
-            justify-content: center; /* Alinha horizontalmente */
             position: relative; /* Para permitir que o formulário "flutue" sobre ele um pouco */
         }
         /* Ajusta o posicionamento do formulário para "subir" um pouco no banner */
@@ -32,11 +32,25 @@
             margin-top: -80px; /* Valor negativo para sobrepor a imagem, ajuste se necessário */
             position: relative;
             z-index: 10; /* Garante que o formulário fique acima do banner */
-            padding-bottom: 40px; /* Espaçamento inferior para o body */
+            padding-bottom: 40px; /* Espaçamento inferior, para não colar no rodapé */
             display: flex;
             justify-content: center;
             align-items: flex-start; /* Alinha o formulário no topo da sua área */
-            min-height: calc(100vh - 200px + 80px); /* Altura mínima para o wrapper do formulário */
+            flex-grow: 1; /* Permite que o wrapper do formulário ocupe o espaço restante */
+            padding-left: 1rem; /* Adiciona padding para telas pequenas */
+            padding-right: 1rem; /* Adiciona padding para telas pequenas */
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .form-container-wrapper {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .form-container-wrapper {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
         }
 
         /* Estilos para os modais (sucesso e erro) */
@@ -60,12 +74,12 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Estilo para a área de texto do RCLE */
-.rcle-container {
-    max-height: 250px;
-    overflow-y: auto;
-    background-color: #f0f8ff; /* Cor de fundo adicionada */
-    border: 1px solid #d4eaf7; /* Ajuste sutil na borda para combinar */
-}
+        .rcle-container {
+            max-height: 250px;
+            overflow-y: auto;
+            background-color: #f0f8ff; /* Cor de fundo adicionada */
+            border: 1px solid #d4eaf7; /* Ajuste sutil na borda para combinar */
+        }
         /* Aplica as cores da UnB aos elementos */
         .border-unb-blue {
             border-color: #002e70; /* Azul Pantone 654 */
@@ -134,6 +148,31 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent; /* Fallback para navegadores que não suportam */
+        }
+
+        /* Estilos do Rodapé */
+        .footer {
+            background-color: #cbd5e0; /* Um cinza claro para o fundo do rodapé */
+            color: #4a5568; /* Cor do texto no rodapé */
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.875rem; /* Tamanho de fonte menor */
+            border-top: 1px solid #a0aec0; /* Uma linha sutil no topo do rodapé */
+            margin-top: auto; /* Empurra o rodapé para o final da página */
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .footer-image {
+            height: 40px; /* Altura da imagem, ajuste conforme necessário */
+            margin-bottom: 0.5rem;
+            max-width: 100%; /* Garante que a imagem seja responsiva */
         }
     </style>
 </head>
@@ -352,6 +391,13 @@
             </form>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <img src="http://www.marca.unb.br/img/assinatura_cor/as_comp_cor.gif" alt="Logotipo UnB" class="footer-image">
+            <p>Programa de Pós-Graduação em Ciência da Informação</p>
+        </div>
+    </footer>
 
     <div id="success-modal" class="modal hidden">
         <div class="modal-content">
